@@ -45,7 +45,7 @@ namespace BLL
                     /*if (!renta.Vehiculos.Exists(d => d.VehiculoID== item.VehiculoID))
                         db.Entry(item).State = EntityState.Deleted;*/
                     if (item.VehiculoId == 0)
-                        guardarDetalle(item);
+                        GuardarDetalle(item);
                     else
                     {
                         db.Entry(item).State = EntityState.Modified;
@@ -63,7 +63,7 @@ namespace BLL
             return paso;
         }
 
-        private static bool guardarDetalle(RentasDetalle Detalle)
+        private static bool GuardarDetalle(RentasDetalle Detalle)
         {
             bool paso = false;
             Contexto db = new Contexto();
