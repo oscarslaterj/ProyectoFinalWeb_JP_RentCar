@@ -16,7 +16,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="ClienteIdTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
                         <div class="input-group-append">
-                            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False">
+                            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" OnClick="BuscarLinkButton_Click">
                                 <span class="fas fa-search"></span>
                                 Buscar
                             </asp:LinkButton>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="TipoDropDownList" class="col-md-3 control-label input-sm">Sexo</label>
                 <div class="col-md-8">
-                    <asp:DropDownList ID="TipoDropDownList" runat="server" Class="form-control input-sm">
+                    <asp:DropDownList ID="SexoDropDownList" runat="server" Class="form-control input-sm">
                         <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
                         <asp:ListItem Text="Masculino"></asp:ListItem>
                         <asp:ListItem Text="Femenino"></asp:ListItem>
@@ -69,16 +69,22 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="col-lg-8 control-label">Direccion</label>
+            <div class="col-lg-8">
+                <asp:TextBox type="text" class="form-control" ID="DireccionTextBox" placeholder="Ingresar Direccion" runat="server"></asp:TextBox>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-lg-8 control-label">Fecha de Registro</label>
             <div class="col-lg-8 ">
                 <asp:TextBox ID="FechaTextBox" class="form-control input-group" TextMode="Date" runat="server" />
             </div>
         </div>
-         <div class="form-group row justify-content-center">
-            <asp:Label ID="Label2" CssClass="col-form-label" Text="Cliente ID" runat="server">Vehiculos Rentados</asp:Label>
+        <div class="form-group row justify-content-center">
+            <asp:Label ID="Label2" CssClass="col-form-label" Text="rENTADOS" runat="server">Vehiculos Rentados</asp:Label>
             <div class="col-lg-3">
                 <div class="input-group">
-                    <asp:TextBox ID="TextBox1" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="VehiculosRentadosTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -91,7 +97,7 @@
         <div class="form-group row justify-content-center">
             <!--Nuevo-->
             <div class="col-lg-1 mr-1">
-                <asp:LinkButton ID="NuevoLinkButton" CssClass="btn btn-primary" runat="server"  CausesValidation="False">
+                <asp:LinkButton ID="NuevoLinkButton" CssClass="btn btn-primary" runat="server" CausesValidation="False" OnClick="NuevoLinkButton_Click">
                         <span class="fas fa-plus"></span>
                         Nuevo
                 </asp:LinkButton>
@@ -99,7 +105,7 @@
 
             <!--Guardar-->
             <div class="col-lg-1 mr-3">
-                <asp:LinkButton ID="GuardarLinkButton" CssClass="btn btn-success"  runat="server">
+                <asp:LinkButton ID="GuardarLinkButton" CssClass="btn btn-success" runat="server" OnClick="GuardarLinkButton_Click">
                         <span class="fas fa-save"></span>
                         Guardar
                 </asp:LinkButton>
@@ -107,7 +113,7 @@
 
             <!--Eliminar-->
             <div class="col-lg-1 mr-3">
-                <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" CausesValidation="False">
+                <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" CausesValidation="False" OnClick="EliminarLinkButton_Click">
                         <span class="fas fa-trash-alt"></span>
                         Eliminar
                 </asp:LinkButton>

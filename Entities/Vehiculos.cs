@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
+    [Serializable]
     public class Vehiculos
     {
         [Key]
@@ -16,7 +17,8 @@ namespace Entities
         public string Tipo { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
-        public string Anio { get; set; }
+        public int Anio { get; set; }
+        public string Color { get; set; }
         public string Descripcion { get; set; }
         public decimal PrecioRenta { get; set; }
         public DateTime FechaRegistro { get; set; }
@@ -25,17 +27,18 @@ namespace Entities
         {
             VehiculoId = 0;
             Placa = string.Empty;
+            Color = string.Empty;
             Tipo = string.Empty;
             Marca = string.Empty;
             Modelo = string.Empty;
-            Anio = string.Empty;
+            Anio = 0;
             Descripcion = string.Empty;
             PrecioRenta = 0;
             FechaRegistro = DateTime.Now;
 
         }
 
-        public Vehiculos(int vehiculoID, string placa, string tipo, string marca, string modelo, string anio, string descripcion, decimal precioRenta, DateTime fechaRegistro)
+        public Vehiculos(int vehiculoID, string placa, string tipo, string marca, string modelo, int anio, string descripcion, decimal precioRenta, DateTime fechaRegistro)
         {
             VehiculoId = vehiculoID;
             Placa = placa;

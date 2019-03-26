@@ -76,13 +76,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator NombreRegularExpressionValidator;
         
         /// <summary>
-        /// TipoDropDownList control.
+        /// SexoDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TipoDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList SexoDropDownList;
         
         /// <summary>
         /// CedulaTextBox control.
@@ -130,6 +130,15 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidaVacioTelefono;
         
         /// <summary>
+        /// DireccionTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DireccionTextBox;
+        
+        /// <summary>
         /// FechaTextBox control.
         /// </summary>
         /// <remarks>
@@ -148,13 +157,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// TextBox1 control.
+        /// VehiculosRentadosTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox VehiculosRentadosTextBox;
         
         /// <summary>
         /// NuevoLinkButton control.
