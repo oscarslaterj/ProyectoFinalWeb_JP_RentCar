@@ -16,7 +16,7 @@ namespace Entities
         public string NombreUser { get; set; }
         public string Clave { get; set; }
         public string ConfirmClave { get; set; }
-        public string NivelAcceso { get; set; }
+        public string Tipo { get; set; }
         public DateTime Fecha { get; set; }
 
 
@@ -26,7 +26,7 @@ namespace Entities
             Nombre = string.Empty;
             NombreUser = string.Empty;
             Clave = string.Empty;
-            NivelAcceso = string.Empty;
+            Tipo = string.Empty;
             Fecha = DateTime.Now;
         }
 
