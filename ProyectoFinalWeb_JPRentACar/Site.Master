@@ -45,10 +45,10 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Registros
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" runat="server" href="#">Usuarios</a>
-                                    <a class="dropdown-item" runat="server" href="#">Clientes</a>
-                                    <a class="dropdown-item" runat="server" href="#">Vehiculos</a>
-                                    <a class="dropdown-item" runat="server" href="#">Renta</a>
+                                    <a class="dropdown-item" runat="server" href="~/UI/Registros/rUsuarios.aspx">Usuarios</a>
+                                    <a class="dropdown-item" runat="server" href="~/UI/Registros/rClientes.aspx">Clientes</a>   
+                                    <a class="dropdown-item" runat="server" href="~/UI/Registros/rVehiculos.aspx">Vehiculos</a>
+                                    <a class="dropdown-item" runat="server" href="~/UI/Registros/rRenta.aspx">Renta</a>
                                     <a class="dropdown-item" runat="server" href="#">Mantenimiento</a>
                                 </div>
                             </li>
@@ -57,16 +57,15 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">Consultas
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" runat="server" href="#">Usuarios</a>
-                                    <a class="dropdown-item" runat="server" href="#">Clientes</a>
-                                    <a class="dropdown-item" runat="server" href="#">Vehiculos</a>
-                                    <a class="dropdown-item" runat="server" href="#">Renta</a>
+                                    <a class="dropdown-item" runat="server" href="~/UI/Consultas/cUsuarios.aspx">Usuarios</a
+                                    <a class="dropdown-item" runat="server" href="~/UI/Consultas/cClientes.aspx">Clientes</a>
+                                    <a class="dropdown-item" runat="server" href="~/UI/Consultas/cVehiculos.aspx">Vehiculos</a>
+                                    <a class="dropdown-item" runat="server" href="~/UI/Consultas/cRenta.aspx">Renta</a>
                                     <a class="dropdown-item" runat="server" href="#">Mantenimiento</a>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  runat="server" href="#">Login</a>
-                            </li>
+                                <a class="nav-link"  runat="server" href="/UI/Login/login.aspx">Login</a>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Salir</a>
                             </li>

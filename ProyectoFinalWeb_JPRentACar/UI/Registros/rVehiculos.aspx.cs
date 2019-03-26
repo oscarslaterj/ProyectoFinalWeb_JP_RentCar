@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 {
-    public partial class rCLientes : System.Web.UI.Page
+    public partial class rVehiculos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,6 +15,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             {
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
-            }
+        }
     }
 }

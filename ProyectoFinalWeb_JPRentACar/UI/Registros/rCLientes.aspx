@@ -14,7 +14,7 @@
                 <asp:Label ID="Label1" CssClass="col-form-label" Text="Cliente ID" runat="server">Cliente ID</asp:Label>
                 <div class="col-lg-3">
                     <div class="input-group">
-                        <asp:TextBox ID="IdTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="ClienteIdTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
                         <div class="input-group-append">
                             <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False">
                                 <span class="fas fa-search"></span>
@@ -83,6 +83,8 @@
             </div>
         </div>
     </div>
+
+
 
     <div class="card-footer">
         <!--Butones-->

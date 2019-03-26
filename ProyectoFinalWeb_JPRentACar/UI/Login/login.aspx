@@ -12,7 +12,7 @@
             <h5 class="card-title text-center">Iniciar Sesión</h5>
             <form class="form-signin">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electonico" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
                 <label for="inputEmail">Usuario</label>
               </div>
 

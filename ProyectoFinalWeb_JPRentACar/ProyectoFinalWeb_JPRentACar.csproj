@@ -124,9 +124,15 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="UI\Consultas\cClientes.aspx" />
+    <Content Include="UI\Consultas\cRenta.aspx" />
+    <Content Include="UI\Consultas\cUsuarios.aspx" />
+    <Content Include="UI\Consultas\cVehiculos.aspx" />
     <Content Include="UI\Login\login.aspx" />
     <Content Include="UI\Registros\rClientes.aspx" />
+    <Content Include="UI\Registros\rRenta.aspx" />
     <Content Include="UI\Registros\rUsuarios.aspx" />
+    <Content Include="UI\Registros\rVehiculos.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -157,6 +163,34 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\cClientes.aspx.cs">
+      <DependentUpon>cClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cClientes.aspx.designer.cs">
+      <DependentUpon>cClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cRenta.aspx.cs">
+      <DependentUpon>cRenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cRenta.aspx.designer.cs">
+      <DependentUpon>cRenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cUsuarios.aspx.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cUsuarios.aspx.designer.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\cVehiculos.aspx.cs">
+      <DependentUpon>cVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\cVehiculos.aspx.designer.cs">
+      <DependentUpon>cVehiculos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Login\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,12 +205,26 @@
     <Compile Include="UI\Registros\rClientes.aspx.designer.cs">
       <DependentUpon>rClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\rRenta.aspx.cs">
+      <DependentUpon>rRenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rRenta.aspx.designer.cs">
+      <DependentUpon>rRenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Registros\rUsuarios.aspx.designer.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rVehiculos.aspx.cs">
+      <DependentUpon>rVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rVehiculos.aspx.designer.cs">
+      <DependentUpon>rVehiculos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios\Utils.cs" />
   </ItemGroup>
@@ -195,7 +243,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
   <ItemGroup>

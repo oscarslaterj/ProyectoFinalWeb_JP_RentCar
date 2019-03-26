@@ -16,6 +16,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         {
             if (!Page.IsPostBack)
             {
+                FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 int id = Utilitarios.Utils.ToInt(Request.QueryString["id"]);
                 if (id > 0)
                 {
