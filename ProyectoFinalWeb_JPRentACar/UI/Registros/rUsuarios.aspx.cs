@@ -42,7 +42,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             usuario.NombreUser = nomUserTextBox.Text;
             usuario.Nombre = NombresTextBox.Text;
             usuario.Clave = contraseñaTextBox.Text;
-            usuario.ConfirmClave = ConfirmarContraseñaTextBox.Text;
             usuario.Tipo = TipoDropDownList.Text;
         }
 
@@ -52,7 +51,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             nomUserTextBox.Text = usuario.NombreUser;
             NombresTextBox.Text = usuario.Nombre;
             contraseñaTextBox.Text = usuario.Clave;
-            ConfirmarContraseñaTextBox.Text = usuario.ConfirmClave;
             TipoDropDownList.Text = usuario.Tipo;
 
         }

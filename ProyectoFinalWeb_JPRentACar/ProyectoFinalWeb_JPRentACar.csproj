@@ -55,6 +55,30 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -79,10 +103,56 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Login\css\main.css" />
+    <Content Include="Content\Login\css\util.css" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Login\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\Login\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\Login\fonts\JosefinSans\OFL.txt" />
+    <Content Include="Content\Login\fonts\source-sans-pro\OFL.txt" />
+    <Content Include="Content\Login\fonts\ubuntu\UFL.txt" />
+    <Content Include="Content\Login\images\icons\favicon.ico" />
+    <Content Include="Content\Login\images\icons\map-marker.png" />
+    <Content Include="Content\Login\js\main.js" />
+    <Content Include="Content\Login\vendor\animate\animate.css" />
+    <Content Include="Content\Login\vendor\animsition\css\animsition.css" />
+    <Content Include="Content\Login\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Content\Login\vendor\animsition\js\animsition.js" />
+    <Content Include="Content\Login\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Login\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\Login\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Login\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Content\Login\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\Login\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\Login\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Login\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Login\vendor\daterangepicker\moment.js" />
+    <Content Include="Content\Login\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Content\Login\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\Login\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Login\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\Login\vendor\select2\select2.css" />
+    <Content Include="Content\Login\vendor\select2\select2.js" />
+    <Content Include="Content\Login\vendor\select2\select2.min.css" />
+    <Content Include="Content\Login\vendor\select2\select2.min.js" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="LogIn.aspx" />
     <Content Include="Resources\all.css" />
     <Content Include="Resources\pkw.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -109,6 +179,90 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\Login\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Bold.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-BoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Italic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Light.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-LightItalic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Regular.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-SemiBold.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-SemiBoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-Thin.ttf" />
+    <Content Include="Content\Login\fonts\JosefinSans\JosefinSans-ThinItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Black.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-BlackItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Bold.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-BoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-ExtraLight.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-ExtraLightItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Italic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Light.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-LightItalic.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-Regular.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-SemiBold.ttf" />
+    <Content Include="Content\Login\fonts\source-sans-pro\SourceSansPro-SemiBoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-BoldItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Italic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-LightItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
+    <Content Include="Content\Login\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="ProyectoFinalDbDataSet.xsc">
+      <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ProyectoFinalDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoFinalDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ProyectoFinalDbDataSet.xss">
+      <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -124,15 +278,28 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="UI\Consultas\cClientes.aspx" />
     <Content Include="UI\Consultas\cRenta.aspx" />
     <Content Include="UI\Consultas\cUsuarios.aspx" />
     <Content Include="UI\Consultas\cVehiculos.aspx" />
-    <Content Include="UI\Login\login.aspx" />
     <Content Include="UI\Registros\rClientes.aspx" />
     <Content Include="UI\Registros\rRenta.aspx" />
     <Content Include="UI\Registros\rUsuarios.aspx" />
     <Content Include="UI\Registros\rVehiculos.aspx" />
+    <Content Include="UI\Reportes\UsuariosReportViewer.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -155,7 +322,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProyectoFinalDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +342,7 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UI\Consultas\cClientes.aspx.cs">
       <DependentUpon>cClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,13 +370,6 @@
     </Compile>
     <Compile Include="UI\Consultas\cVehiculos.aspx.designer.cs">
       <DependentUpon>cVehiculos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Login\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\Login\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\rClientes.aspx.cs">
       <DependentUpon>rClientes.aspx</DependentUpon>
@@ -226,6 +399,13 @@
     <Compile Include="UI\Registros\rVehiculos.aspx.designer.cs">
       <DependentUpon>rVehiculos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\UsuariosReportViewer.aspx.cs">
+      <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\UsuariosReportViewer.aspx.designer.cs">
+      <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilitarios\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,7 +423,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UI\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -260,6 +439,9 @@
       <Project>{5EC4CB1C-AA54-466B-81BA-4C03DDC925E9}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\UsuariosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

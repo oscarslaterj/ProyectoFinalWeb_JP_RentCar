@@ -15,7 +15,7 @@ namespace Entities
         public int ClienteId { get; set; }
         public int VehiculoId { get; set; }
         public int RentaId { get; set; }
-        public String Año { get; set; }
+        public int Anio { get; set; }
         public String Marca { get; set; }
         public String Modelo { get; set; }
         public decimal Precio { get; set; }
@@ -26,19 +26,19 @@ namespace Entities
             ClienteId = 0;
             VehiculoId = 0;
             RentaId = 0;
-            Año = string.Empty;
+            Anio = 0;
             Marca = string.Empty;
             Modelo = string.Empty;
             Precio = 0;
         }
 
-        public RentasDetalle(int idDetalle, int idcliente, int idVehiculo, int idRenta, string año, string marca, string modelo, decimal precio)
+        public RentasDetalle(int idDetalle, int idcliente, int idVehiculo, int idRenta, int anio, string marca, string modelo, decimal precio)
         {
             DetalleId = idDetalle;
             ClienteId = idcliente;
             VehiculoId = idVehiculo;
             RentaId = idRenta;
-            Año = año;
+            Anio = anio;
             Marca = marca;
             Modelo = modelo;
             Precio = precio;

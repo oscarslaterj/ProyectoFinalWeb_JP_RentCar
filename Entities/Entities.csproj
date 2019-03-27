@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clientes.cs" />
-    <Compile Include="Mantenimiento.cs" />
     <Compile Include="Renta.cs" />
     <Compile Include="RentasDetalle.cs" />
     <Compile Include="Usuarios.cs" />
