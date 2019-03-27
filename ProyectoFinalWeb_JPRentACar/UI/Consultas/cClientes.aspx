@@ -8,7 +8,7 @@
         <%--Filtro--%>
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-primary" runat="server" />
-            <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server">
+            <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="FiltroDropDownList_SelectedIndexChanged">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem>Cliente ID</asp:ListItem>
                 <asp:ListItem>Fecha</asp:ListItem>
@@ -22,7 +22,7 @@
             <asp:TextBox ID="CriterioTextBox" class="form-control input-group" runat="server"></asp:TextBox>
         </div>
         <div class="col-lg-1 p-0">
-            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-outline-info mt-4" runat="server">
+            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-outline-info mt-4" runat="server" OnClick="BuscarLinkButton_Click">
                 <span class="fas fa-search"></span>
                  Buscar
             </asp:LinkButton>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="form-row justify-content-center">
-        <asp:GridView ID="CuentaGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="ClientesGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="SkyBlue" />
             <Columns>
                 <asp:BoundField DataField="ClienteId" HeaderText="Cliente Id" />
@@ -63,7 +63,7 @@
 
 
     <div class="form-row justify-content-center">
-        <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Imprimir" />
+        <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
 
     </div>
 </asp:Content>

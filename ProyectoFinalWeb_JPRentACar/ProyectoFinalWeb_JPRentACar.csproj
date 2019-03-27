@@ -153,8 +153,13 @@
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="LogIn.aspx" />
+    <Content Include="Resources\Portada.jfif" />
+    <Content Include="Resources\Portada.jpg" />
     <Content Include="Resources\all.css" />
     <Content Include="Resources\pkw.png" />
+    <Content Include="Resources\Portada2.png" />
+    <Content Include="Resources\Portada3.png" />
+    <Content Include="Resources\thisone.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

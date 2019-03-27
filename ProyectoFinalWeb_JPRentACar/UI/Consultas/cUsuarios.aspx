@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3>Consulta de Usuarios</h3>
     <div class="form-row justify-content-center">
+
         <%--Filtro--%>
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-primary" runat="server" />
@@ -17,6 +18,7 @@
                 <asp:ListItem>Nombre de usuario</asp:ListItem>
             </asp:DropDownList>
         </div>
+
         <%--Criterio--%>
         <div class="form-group col-md-3">
             <asp:Label ID="Label1" runat="server" Text="Buscar">Buscar:</asp:Label>
@@ -60,10 +62,7 @@
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
 
             </Columns>
-
-
         </asp:GridView>
-
     </div>
 
      <div class="form-row justify-content-center">
