@@ -67,13 +67,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas {
         protected global::System.Web.UI.WebControls.TextBox HastaTextBox;
         
         /// <summary>
-        /// ConsultaGridView control.
+        /// UsuarioGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ConsultaGridView;
+        protected global::System.Web.UI.WebControls.GridView UsuarioGridView;
         
         /// <summary>
         /// ImprimirButton control.

@@ -10,12 +10,12 @@
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-primary" runat="server" />
             <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server">
-                <asp:ListItem></asp:ListItem>
                 <asp:ListItem>Todo</asp:ListItem>
                 <asp:ListItem>Usuario ID</asp:ListItem>
-                <asp:ListItem>Fecha</asp:ListItem>
-                <asp:ListItem>Nombres</asp:ListItem>
                 <asp:ListItem>Nombre de usuario</asp:ListItem>
+                <asp:ListItem>Tipo</asp:ListItem>
+                <asp:ListItem>Nombres</asp:ListItem>
+              
             </asp:DropDownList>
         </div>
 
@@ -51,14 +51,14 @@
 
 
     <div class="form-row justify-content-center">
-        <asp:GridView ID="ConsultaGridView" runat="server" class="table table-condensed table-bordered table-responsive"
+        <asp:GridView ID="UsuarioGridView" runat="server" class="table table-condensed table-bordered table-responsive"
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="SkyBlue" />
             <Columns>
                 <asp:BoundField DataField="UsuarioId" HeaderText="Usuario Id" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
-                <asp:BoundField DataField="Nombres" HeaderText="Nombres" />
-                <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre de usuario" />
+                <asp:BoundField DataField="Nombre" HeaderText="Nombres" />
+                <asp:BoundField DataField="NombreUser" HeaderText="Nombre de usuario" />
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
 
             </Columns>

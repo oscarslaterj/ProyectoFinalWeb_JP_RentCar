@@ -1236,7 +1236,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>ProyectoFinalDataSet</DataSetName>
+        <DataSetName>UsuariosDataSet</DataSetName>
         <Height>2.25in</Height>
         <Width>6.76042in</Width>
         <Style>
@@ -1268,7 +1268,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="ProyectoFinalDataSet">
+    <DataSet Name="UsuariosDataSet">
       <Query>
         <DataSourceName>ProyectoFinalDbDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1301,7 +1301,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ProyectoFinalDbDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\ojimenez.COOPDUARTE\source\repos\ProyectoFinalWeb_JPRentACar\ProyectoFinalWeb_JPRentACar\ProyectoFinalDbDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Rafael\Documents\GitHub\ProyectoFinalWeb_JP_RentCar\ProyectoFinalWeb_JPRentACar\ProyectoFinalDbDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Usuarios</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

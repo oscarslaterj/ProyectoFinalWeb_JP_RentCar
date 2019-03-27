@@ -52,6 +52,7 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentaBLL.cs" />
+    <Compile Include="RentaRepositorio.cs" />
     <Compile Include="RepositorioBase.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -36,13 +36,15 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             }
         }
 
-        private void LlenaClase(Usuarios usuario)
+        private Usuarios LlenaClase()
         {
+            Usuarios usuario = new Usuarios();
             usuario.UsuarioId = Utils.ToInt(usuarioidTextBox.Text);
             usuario.NombreUser = nomUserTextBox.Text;
             usuario.Nombre = NombresTextBox.Text;
             usuario.Clave = contraseñaTextBox.Text;
             usuario.Tipo = TipoDropDownList.Text;
+            return usuario;
         }
 
         private void LlenaCampos(Usuarios usuario)
@@ -73,39 +75,59 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
-            Usuarios usuarios = new Usuarios();
-            bool paso = false;
+            Usuarios usuarios = repositorio.Buscar(Utils.ToInt(usuarioidTextBox.Text));
+           
 
-            LlenaClase(usuarios);
+         
 
-            if (usuarios.UsuarioId == 0)
-                paso = repositorio.Guardar(usuarios);
-            else
-                paso = repositorio.Modificar(usuarios);
-
-            if (paso)
+            if (usuarios == null)
             {
-                Utils.MostraMensaje(this, "Guardado correctamente", "Informacion", "success");
-                Limpiar();
+                if (repositorio.Guardar(LlenaClase()))
+                {
+                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                    Limpiar();
+                }
+                else
+                {
+                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                }
+
             }
             else
             {
-                Utils.MostraMensaje(this, "No se pudo guardar", "Informacion", "error");
+                if (repositorio.Modificar(LlenaClase()))
+                {
+                    Utils.MostraMensaje(this, "Modificado", "Exito", "success");
+                    Limpiar();
+                }
+
+                else
+                    Utils.MostraMensaje(this, "No Modificado", "Error", "error");
             }
+
+
+
 
         }
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
-            int id = Utils.ToInt(usuarioidTextBox.Text);
 
-            var usuario = repositorio.Buscar(id);
+            Usuarios usuaario = repositorio.Buscar(Utils.ToInt(usuarioidTextBox.Text));
 
-            if (usuario == null)
-                Utils.MostraMensaje(this, "No existe", "Error", "error");
+            if (usuaario != null)
+            {
+                if (repositorio.Eliminar(usuaario.UsuarioId))
+                {
+                    Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
+                    Limpiar();
+                }
+                else
+                    Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
+            }
             else
-                repositorio.Eliminar(id);
+                Utils.MostraMensaje(this, "No existe", "Error", "error");
         }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)

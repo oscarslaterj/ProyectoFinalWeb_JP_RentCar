@@ -9,9 +9,9 @@
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-primary" runat="server" />
             <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="FiltroDropDownList_SelectedIndexChanged">
-                <asp:ListItem></asp:ListItem>
+                
+                 <asp:ListItem>Todo</asp:ListItem>
                 <asp:ListItem>Cliente ID</asp:ListItem>
-                <asp:ListItem>Fecha</asp:ListItem>
                 <asp:ListItem>Nombre</asp:ListItem>
                 <asp:ListItem>Cedula</asp:ListItem>
             </asp:DropDownList>
@@ -51,7 +51,7 @@
             <AlternatingRowStyle BackColor="SkyBlue" />
             <Columns>
                 <asp:BoundField DataField="ClienteId" HeaderText="Cliente Id" />
-                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                <asp:BoundField DataField="FechaRegistro" HeaderText="Fecha" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="Cedula" HeaderText="Cedula" />
             </Columns>
@@ -66,6 +66,8 @@
         <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
 
     </div>
+
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>

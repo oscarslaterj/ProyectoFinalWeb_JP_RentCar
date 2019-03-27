@@ -17,7 +17,7 @@
                                 <span class="fas fa-search"></span>
                                 Buscar
                         </asp:LinkButton>
-                          <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary" runat="server" CausesValidation="False">
+                          <asp:LinkButton ID="RentarLinkButton" CssClass="btn btn-primary" OnClick="RentarLinkButton_Click" runat="server" CausesValidation="False">
                                 <span class="fas fa-search"></span>
                                Rentar
                         </asp:LinkButton>
@@ -28,14 +28,14 @@
         <div class="form-group">
             <label for="VehiculoDropDownList" class="col-md-3 control-label input-sm">Vehiculo</label>
             <div class="col-md-8">
-                <asp:DropDownList ID="VehiculoDropDownList" runat="server" ReadOnly="true" Class="form-control input-sm">
+                <asp:DropDownList AutoPostBack="true" ID="VehiculoDropDownList" AppendDataBoundItems="true" OnSelectedIndexChanged="VehiculoDropDownList_SelectedIndexChanged" runat="server" ReadOnly="true" Class="form-control input-sm">
                     <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
                 <label for="TipoDropDownList" class="col-md-3 control-label input-sm">Cliente</label>
                 <div class="col-md-8">
-                    <asp:DropDownList ID="ClienteDropDownList" runat="server" ReadOnly="true" Class="form-control input-sm">
+                    <asp:DropDownList ID="ClienteDropDownList" AppendDataBoundItems="true" runat="server" ReadOnly="true" Class="form-control input-sm">
                         <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
                     </asp:DropDownList>
                 </div>
@@ -101,19 +101,29 @@
     <div class="row justify-content-center mt-3">
         <div class="col-lg-11">
             <asp:GridView ID="DetalleGridView"  runat="server" AllowPaging="true" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False" >
-
+                <Columns>
+                    <asp:BoundField DataField="DetalleId" HeaderText ="Id" />   
+                    <asp:BoundField DataField="RentaId" HeaderText ="Tenta #" />   
+                    <asp:BoundField DataField="ClienteId" HeaderText ="Cliente #" />   
+                    <asp:BoundField DataField="VehiculoId" HeaderText ="Vehiculo #" />   
+                    <asp:BoundField DataField="Marca" HeaderText ="Marca" />   
+                    <asp:BoundField DataField="Modelo" HeaderText ="Modelo" />   
+                    <asp:BoundField DataField="Anio" HeaderText ="Ano" />   
+                    <asp:BoundField DataField="Precio" HeaderText ="Precio" />   
+                     
+                </Columns>
             </asp:GridView>
         </div>
     </div>
-    <asp:Button ID="Button1" runat="server" Text="Agregar" />
-    <asp:Button ID="Button2" runat="server" Text="Eliminar" />
+    <asp:Button ID="AgregarButton" OnClick="AgregarButton_Click" runat="server" Text="Agregar" />
+    <asp:Button ID="EliminarButton" OnClick="EliminarButton_Click" runat="server" Text="Eliminar" />
 
     <div class="card-footer">
         <!--Butones-->
         <div class="form-group row justify-content-center">
             <!--Nuevo-->
             <div class="col-lg-1 mr-1">
-                <asp:LinkButton ID="NuevoLinkButton" CssClass="btn btn-primary" runat="server" CausesValidation="False">
+                <asp:LinkButton ID="NuevoLinkButton"  CssClass="btn btn-primary" runat="server" CausesValidation="False">
                         <span class="fas fa-plus"></span>
                         Nuevo
                 </asp:LinkButton>

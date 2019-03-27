@@ -13,6 +13,7 @@ Tipo varchar (15)
 
 );
 
+INSERT INTO Usuarios(Fecha,Nombre,NombreUser,Clave,Tipo) VALUES('2019/03/27','Oscar','Oscar Slater','123','Administrador' );
 
 create table Clientes(
 
@@ -52,6 +53,7 @@ FechaRegistro date,
 Tipo varchar (30),
 Marca varchar (30),
 Modelo varchar (30),
+Placa varchar(20),
 Anio int,
 Color varchar (15),
 Descripcion varchar (60),

@@ -25,8 +25,9 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             
         }
 
-        private void LlenaClase(Vehiculos vehiculos)
+        private Vehiculos LlenaClase()
         {
+            Vehiculos vehiculos = new Vehiculos();
             vehiculos.VehiculoId = Utils.ToInt(VehiculoIDTextBox.Text);
             vehiculos.Modelo = ModeloTextBox.Text;
             vehiculos.Marca = MarcaTextBox.Text;
@@ -35,6 +36,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             vehiculos.Color = ColorDropDownList.Text;
             vehiculos.PrecioRenta = Utils.ToInt(PrecioTextBox.Text);
             vehiculos.Anio = Utils.ToInt(AñoTextBox.Text);
+            return vehiculos;
         }
 
         private void Limpiar()
@@ -85,51 +87,43 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         protected void GuardarLinkButton_Click(object sender, EventArgs e)
         {
-            bool paso = false;
             RepositorioBase<Vehiculos> repositorio = new RepositorioBase<Vehiculos>();
-            Vehiculos vehiculo= new Vehiculos();
+            Vehiculos vehiculo = repositorio.Buscar(Utils.ToInt(VehiculoIDTextBox.Text));
 
-            LlenaClase(vehiculo);
-
-            if (VehiculoIDTextBox.Text == "0")
+            if (vehiculo == null)
             {
-                paso = repositorio.Guardar(vehiculo);
-                Utils.MostraMensaje(this, "Guardado", "Exito", "success");
-                Limpiar();
+               if( repositorio.Guardar(LlenaClase()))
+                {
+                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                    Limpiar();
+                }else
+                {
+                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                }
+                
             }
             else
             {
-                RepositorioBase<Vehiculos> repository = new RepositorioBase<Vehiculos>();
-                int id = Utils.ToInt(VehiculoIDTextBox.Text);
-                vehiculo = repository.Buscar(id);
-
-                if (vehiculo != null)
+                if(repositorio.Modificar(LlenaClase()))
                 {
-                    paso = repository.Modificar(vehiculo);
                     Utils.MostraMensaje(this, "Modificado", "Exito", "success");
-                }
+                    Limpiar();
+                }                  
+                
                 else
                     Utils.MostraMensaje(this, "Id no existe", "Error", "error");
             }
 
-            if (paso)
-            {
-                Limpiar();
-            }
-            else
-                Utils.MostraMensaje(this, "No se pudo guardar", "Error", "error");
-        }
+         }
 
         protected void EliminarLinkButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Vehiculos> repositorio = new RepositorioBase<Vehiculos>();
-            int id = Utils.ToInt(VehiculoIDTextBox.Text);
+            Vehiculos vehiculo = repositorio.Buscar(Utils.ToInt(VehiculoIDTextBox.Text));
 
-            var producto = repositorio.Buscar(id);
-
-            if (producto != null)
+            if (vehiculo != null)
             {
-                if (repositorio.Eliminar(id))
+                if (repositorio.Eliminar(vehiculo.VehiculoId))
                 {
                     Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
                     Limpiar();

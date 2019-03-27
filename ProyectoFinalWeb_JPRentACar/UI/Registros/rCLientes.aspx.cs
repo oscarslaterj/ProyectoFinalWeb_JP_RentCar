@@ -17,35 +17,43 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             if (!Page.IsPostBack)
             {
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
 
 
-        private void LlenaClase(Clientes cliente)
+        private Clientes LlenaClase()
         {
+            Clientes cliente = new Clientes();
+
             cliente.ClienteId = Utils.ToInt(ClienteIdTextBox.Text);
+            cliente.FechaRegistro = Convert.ToDateTime(FechaTextBox.Text);
+            cliente.FechaNacimiento = Convert.ToDateTime(FechaNacimientoTextBox.Text);
             cliente.Nombre = NombresTextBox.Text;
             cliente.Direccion = DireccionTextBox.Text;
             cliente.Cedula = CedulaTextBox.Text;
             cliente.Telefono = TelefonoTextBox.Text;
             cliente.Sexo = SexoDropDownList.Text;
             cliente.VehiculosRentados = 0;
+            return cliente;
         }
 
         private void Limpiar()
         {
-            ClienteIdTextBox.Text = "0";
+            ClienteIdTextBox.Text = "";
+            FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             FechaNacimientoTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            NombresTextBox.Text = "0";
-            TelefonoTextBox.Text = "0";
-            CedulaTextBox.Text = "0";
-            DireccionTextBox.Text = "0";
-            VehiculosRentadosTextBox.Text = "0";
+            NombresTextBox.Text = "";
+            TelefonoTextBox.Text = "";
+            CedulaTextBox.Text = "";
+            DireccionTextBox.Text = "";
+            VehiculosRentadosTextBox.Text = "";
         }
 
         public void LlenaCampos(Clientes cliente)
         {
             Limpiar();
+            FechaTextBox.Text = cliente.FechaRegistro.ToString("yyy-MM-dd");
             FechaNacimientoTextBox.Text = cliente.FechaNacimiento.ToString("yyyy-MM-dd");
             NombresTextBox.Text = cliente.Nombre;
             TelefonoTextBox.Text = cliente.Telefono;
@@ -58,10 +66,10 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
 
-            var deposito = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
-            if (deposito != null)
+            var cliente = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
+            if (cliente != null)
             {
-                LlenaCampos(deposito);
+                LlenaCampos(cliente);
                 Utils.MostraMensaje(this, "Busqueda exitosa", "Exito", "success");
             }
             else
@@ -78,51 +86,47 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         protected void GuardarLinkButton_Click(object sender, EventArgs e)
         {
-            bool paso = false;
+           
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
-            Clientes cliente = new Clientes();
+            Clientes cliente = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
 
-            LlenaClase(cliente);
-
-            if (ClienteIdTextBox.Text == "0")
+            
+            if (cliente == null)
             {
-                paso = repositorio.Guardar(cliente);
-                Utils.MostraMensaje(this, "Guardado", "Exito", "success");
-                Limpiar();
-            }
-            else
-            {
-                RepositorioBase<Clientes> repository = new RepositorioBase<Clientes>();
-                int id = Utils.ToInt(ClienteIdTextBox.Text);
-                cliente = repository.Buscar(id);
-
-                if (cliente != null)
+                if (repositorio.Guardar(LlenaClase()))
                 {
-                    paso = repository.Modificar(cliente);
-                    Utils.MostraMensaje(this, "Modificado", "Exito", "success");
+                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                    Limpiar();
                 }
                 else
-                    Utils.MostraMensaje(this, "Id no existe", "Error", "error");
-            }
+                {
+                    Utils.MostraMensaje(this, "No Guardado", "Exito", "success");
+                }
 
-            if (paso)
-            {
-                Limpiar();
             }
             else
-                Utils.MostraMensaje(this, "No se pudo guardar", "Error", "error");
+            {
+                if (repositorio.Modificar(LlenaClase()))
+                {
+                    Utils.MostraMensaje(this, "Modificado", "Exito", "success");
+                    Limpiar();
+                }
+
+                else
+                    Utils.MostraMensaje(this, "No Modificado", "Error", "error");
+            }
         }
 
         protected void EliminarLinkButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
-            int id = Utils.ToInt(ClienteIdTextBox.Text);
+            
 
-            var cliente = repositorio.Buscar(id);
+            Clientes cliente = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
 
             if (cliente != null)
             {
-                if (repositorio.Eliminar(id))
+                if (repositorio.Eliminar(cliente.ClienteId))
                 {
                     Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
                     Limpiar();

@@ -287,6 +287,8 @@
     <Content Include="ClientesFinalDbDataSet.xss">
       <DependentUpon>ClientesFinalDbDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ProyectoFinalAplicadaII - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ProyectoFinalAplicadaII - Web Deploy.pubxml" />
     <None Include="ProyectoFinalDbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ProyectoFinalDbDataSet.Designer.cs</LastGenOutput>
@@ -438,12 +440,28 @@
       <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios\Utils.cs" />
+    <Compile Include="VehiculosFinalDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehiculosFinalDbDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="VehiculosFinalDbDataSet.xsc">
+      <DependentUpon>VehiculosFinalDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="VehiculosFinalDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VehiculosFinalDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="VehiculosFinalDbDataSet.xss">
+      <DependentUpon>VehiculosFinalDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -474,6 +492,7 @@
   <ItemGroup>
     <EmbeddedResource Include="UI\Reportes\ClientesReport.rdlc" />
     <EmbeddedResource Include="UI\Reportes\UsuariosReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\VehiculosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

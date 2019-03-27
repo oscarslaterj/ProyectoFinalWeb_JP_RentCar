@@ -11,7 +11,7 @@
             <asp:Label ID="Label1" CssClass="col-form-label" Text="UserIdText" runat="server">Vehiculo ID</asp:Label>
             <div class="col-lg-3">
                 <div class="input-group">
-                    <asp:TextBox ID="VehiculoIDTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="VehiculoIDTextBox" CssClass="form-control" placeholder="0" TextMode="Number" runat="server"></asp:TextBox>
                     <div class="input-group-append">
                         <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False" OnClick="BuscarLinkButton_Click">
                                 <span class="fas fa-search"></span>

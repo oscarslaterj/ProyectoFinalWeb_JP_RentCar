@@ -54,11 +54,14 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
                 case 2://Nombres
                     filtro = p => p.Nombre.Contains(CriterioTextBox.Text) && p.FechaRegistro >= desde && p.FechaRegistro <= hasta;
                     break;
+                case 3://Cedula
+                    filtro = p => p.Cedula.Contains(CriterioTextBox.Text) && p.FechaRegistro >= desde && p.FechaRegistro <= hasta;
+                    break;
             }
 
             listClientes = repositorio.GetList(filtro);
             ClientesGridView.DataSource = listClientes;
-            ClientesGridView.DataBind();           
+            ClientesGridView.DataBind();
 
         }
         public static List<Clientes> RetornarClientes()

@@ -15,6 +15,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
     {
         Expression<Func<Usuarios, bool>> filtro = c => true;
         public static List<Usuarios> listUsuarios { get; set; }
+        RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -26,35 +27,35 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
             int id = 0;
+            DateTime desde = Convert.ToDateTime(DesdeTextBox.Text);
+            DateTime hasta = Convert.ToDateTime(HastaTextBox.Text);
+
             switch (FiltroDropDownList.SelectedIndex)
             {
                 case 0://Todo
-                    filtro = c => true;
+                    filtro = p => true && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
 
                 case 1://UsuarioId
                     id = Utils.ToInt(CriterioTextBox.Text);
-                    filtro = c => c.UsuarioId == id && (c.Fecha >= Utils.ToDateTime(DesdeTextBox.Text) && c.Fecha <= Utils.ToDateTime(HastaTextBox.Text));
+                    filtro = p => p.UsuarioId == id && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
 
-                case 2://Fecha
-                    filtro = (c => c.Fecha.Equals(CriterioTextBox.Text));
+                case 2://Usuario
+                    filtro = p => p.NombreUser.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
-
-                case 3://Nombre
-                    filtro = c => c.Nombre.Contains(CriterioTextBox.Text) && (c.Fecha >= Utils.ToDateTime(DesdeTextBox.Text) && c.Fecha <= Utils.ToDateTime(HastaTextBox.Text));
+                case 3://Tipo
+                    filtro = p => p.Tipo.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
-
-                case 4://Nombre de usuario
-                    filtro = c => c.NombreUser.Contains(CriterioTextBox.Text) && (c.Fecha >= Utils.ToDateTime(DesdeTextBox.Text) && c.Fecha <= Utils.ToDateTime(HastaTextBox.Text));
+                case 4://Nombre
+                    filtro = p => p.Nombre.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
-
             }
 
-            ConsultaGridView.DataSource = repositorio.GetList(filtro);
-            ConsultaGridView.DataBind();
+            listUsuarios = repositorio.GetList(filtro);
+            UsuarioGridView.DataSource = listUsuarios;
+            UsuarioGridView.DataBind();
         }
 
         public static List<Usuarios> RetornarUsuarios()
