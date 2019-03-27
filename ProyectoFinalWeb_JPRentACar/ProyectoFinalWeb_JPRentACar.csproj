@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,6 +83,12 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,6 +98,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -95,6 +108,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -260,6 +276,17 @@
     <Content Include="ProyectoFinalDbDataSet.xsc">
       <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="ClientesFinalDbDataSet.xsc">
+      <DependentUpon>ClientesFinalDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ClientesFinalDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClientesFinalDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ClientesFinalDbDataSet.xss">
+      <DependentUpon>ClientesFinalDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="ProyectoFinalDbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ProyectoFinalDbDataSet.Designer.cs</LastGenOutput>
@@ -291,6 +318,7 @@
     <Content Include="UI\Registros\rRenta.aspx" />
     <Content Include="UI\Registros\rUsuarios.aspx" />
     <Content Include="UI\Registros\rVehiculos.aspx" />
+    <Content Include="UI\Reportes\ClientesReportViewer.aspx" />
     <Content Include="UI\Reportes\UsuariosReportViewer.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -304,6 +332,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesFinalDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientesFinalDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -390,6 +423,13 @@
     <Compile Include="UI\Registros\rVehiculos.aspx.designer.cs">
       <DependentUpon>rVehiculos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ClientesReportViewer.aspx.cs">
+      <DependentUpon>ClientesReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ClientesReportViewer.aspx.designer.cs">
+      <DependentUpon>ClientesReportViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\UsuariosReportViewer.aspx.cs">
       <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -432,6 +472,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\ClientesReport.rdlc" />
     <EmbeddedResource Include="UI\Reportes\UsuariosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
