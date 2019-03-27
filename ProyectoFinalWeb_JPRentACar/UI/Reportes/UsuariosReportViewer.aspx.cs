@@ -15,12 +15,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Reportes
         {
             if (!Page.IsPostBack)
             {
-                ListadoReportViewer.ProcessingMode = ProcessingMode.Local;
-                ListadoReportViewer.Reset();
-                ListadoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\UI\Reportes\UsuariosReport.rdlc");
-                ListadoReportViewer.LocalReport.DataSources.Clear();
-                ListadoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("UsuariosDataSet", cUsuarios.RetornarUsuarios()));
-                ListadoReportViewer.LocalReport.Refresh();
+                VehiculosReportViewer.ProcessingMode = ProcessingMode.Local;
+                VehiculosReportViewer.Reset();
+                VehiculosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\UI\Reportes\UsuariosReport.rdlc");
+                VehiculosReportViewer.LocalReport.DataSources.Clear();
+                VehiculosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("UsuariosDataSet", cUsuarios.RetornarUsuarios()));
+                VehiculosReportViewer.LocalReport.Refresh();
             }
 
         }

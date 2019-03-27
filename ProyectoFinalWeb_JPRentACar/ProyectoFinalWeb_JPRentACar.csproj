@@ -322,6 +322,7 @@
     <Content Include="UI\Registros\rVehiculos.aspx" />
     <Content Include="UI\Reportes\ClientesReportViewer.aspx" />
     <Content Include="UI\Reportes\UsuariosReportViewer.aspx" />
+    <Content Include="UI\Reportes\VehiculosReportViewer.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -438,6 +439,13 @@
     </Compile>
     <Compile Include="UI\Reportes\UsuariosReportViewer.aspx.designer.cs">
       <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\VehiculosReportViewer.aspx.cs">
+      <DependentUpon>VehiculosReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\VehiculosReportViewer.aspx.designer.cs">
+      <DependentUpon>VehiculosReportViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios\Utils.cs" />
     <Compile Include="VehiculosFinalDbDataSet.Designer.cs">

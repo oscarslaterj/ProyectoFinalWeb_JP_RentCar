@@ -31,12 +31,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Reportes {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// ListadoReportViewer control.
+        /// VehiculosReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ListadoReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer VehiculosReportViewer;
     }
 }

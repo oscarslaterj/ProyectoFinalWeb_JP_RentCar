@@ -7,7 +7,7 @@
         <%--Filtro--%>
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-primary" runat="server" />
-            <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server">
+            <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="FiltroDropDownList_SelectedIndexChanged">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem>Vehiculo ID</asp:ListItem>
                 <asp:ListItem>Fecha</asp:ListItem>
@@ -47,7 +47,7 @@
 
 
     <div class="form-row justify-content-center">
-        <asp:GridView ID="ConsultaGridView" runat="server" class="table table-condensed table-bordered table-responsive"
+        <asp:GridView ID="VehiculosGridView" runat="server" class="table table-condensed table-bordered table-responsive"
             AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="SkyBlue" />
             <Columns>
@@ -66,7 +66,7 @@
     </div>
 
      <div class="form-row justify-content-center">
-        <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Imprimir" />
+        <asp:Button ID="ImprimirButton" CssClass="btn btn-outline-info mt-4" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
 
     </div>
 
