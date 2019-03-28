@@ -498,9 +498,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UI\Reportes\ClientesReport.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\UsuariosReport.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\VehiculosReport.rdlc" />
+    <Content Include="UI\Reportes\ClientesReport.rdlc" />
+    <Content Include="UI\Reportes\UsuariosReport.rdlc" />
+    <Content Include="UI\Reportes\VehiculosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

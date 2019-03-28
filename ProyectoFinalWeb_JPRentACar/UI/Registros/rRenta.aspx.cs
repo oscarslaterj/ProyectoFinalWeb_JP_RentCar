@@ -51,6 +51,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             {
                 if (repositorio.Guardar(GetRenta()))
                 {
+                    Poner();
                     Utils.MostraMensaje(this, "Guardado", "Exito", "success");
                   
                 }
@@ -71,6 +72,30 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
                 else
                     Utils.MostraMensaje(this, "No Modificado", "Error", "error");
             }
+        }
+
+        private void Poner()
+        {
+            int cantidad = DetalleGridView.Rows.Count;
+            int id = Utils.ToInt(ClienteDropDownList.SelectedValue);
+            RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
+            Clientes cliente = new Clientes();
+            cliente = repositorio.Buscar(id);
+
+            cliente.VehiculosRentados += cantidad;
+            repositorio.Modificar(cliente);
+        }
+
+        private void Quitar()
+        {
+            int cantidad = DetalleGridView.Rows.Count;
+            int id = Utils.ToInt(ClienteDropDownList.SelectedValue);
+            RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
+            Clientes cliente = new Clientes();
+            cliente = repositorio.Buscar(id);
+
+            cliente.VehiculosRentados -= cantidad;
+            repositorio.Modificar(cliente);
         }
 
         private void LlenaDropDown()
@@ -125,6 +150,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             {
                 if (repositorio.Eliminar(renta.RentaId))
                 {
+                    Quitar();
                     Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
                    
                 }
