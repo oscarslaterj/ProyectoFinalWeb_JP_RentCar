@@ -287,8 +287,21 @@
     <Content Include="ClientesFinalDbDataSet.xss">
       <DependentUpon>ClientesFinalDbDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="JPRentCarDBDataSet.xsc">
+      <DependentUpon>JPRentCarDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="JPRentCarDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JPRentCarDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="JPRentCarDBDataSet.xss">
+      <DependentUpon>JPRentCarDBDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ProyectoFinalAplicadaII - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ProyectoFinalAplicadaII - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\ProyectoFinalAplicadaII - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ProyectoFinalAplicadaII - Web Deploy1.pubxml" />
     <None Include="ProyectoFinalDbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ProyectoFinalDbDataSet.Designer.cs</LastGenOutput>
@@ -334,6 +347,7 @@
     <Content Include="UI\Registros\rUsuarios.aspx" />
     <Content Include="UI\Registros\rVehiculos.aspx" />
     <Content Include="UI\Reportes\ClientesReportViewer.aspx" />
+    <Content Include="UI\Reportes\ReciboRentaReportViewer.aspx" />
     <Content Include="UI\Reportes\UsuarioReportViewer.aspx" />
     <Content Include="UI\Reportes\VehiculosReportViewer.aspx" />
     <Content Include="Web.config" />
@@ -362,6 +376,11 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="JPRentCarDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPRentCarDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
@@ -447,6 +466,13 @@
     <Compile Include="UI\Reportes\ClientesReportViewer.aspx.designer.cs">
       <DependentUpon>ClientesReportViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ReciboRentaReportViewer.aspx.cs">
+      <DependentUpon>ReciboRentaReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReciboRentaReportViewer.aspx.designer.cs">
+      <DependentUpon>ReciboRentaReportViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\UsuarioReportViewer.aspx.cs">
       <DependentUpon>UsuarioReportViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -515,6 +541,9 @@
     <Content Include="UI\Reportes\ClientesReport.rdlc" />
     <Content Include="UI\Reportes\UsuariosReport.rdlc" />
     <Content Include="UI\Reportes\VehiculosReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UI\Reportes\ReciboRentaReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

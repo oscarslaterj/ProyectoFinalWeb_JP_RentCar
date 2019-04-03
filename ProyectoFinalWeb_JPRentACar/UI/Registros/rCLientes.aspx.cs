@@ -48,6 +48,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             CedulaTextBox.Text = "";
             DireccionTextBox.Text = "";
             VehiculosRentadosTextBox.Text = "";
+            SexoDropDownList.SelectedIndex = 0;
         }
 
         public void LlenaCampos(Clientes cliente)

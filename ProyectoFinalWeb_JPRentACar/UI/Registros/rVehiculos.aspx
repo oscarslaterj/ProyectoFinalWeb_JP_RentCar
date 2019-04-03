@@ -51,7 +51,7 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <asp:Label Text="Placa" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="PlacaTextBox" placeholder="Ingresar Placa" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="PlacaTextBox" placeholder="Ingresar Placa" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese alguna Placa!" ControlToValidate="PlacaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </div>
 
@@ -59,7 +59,7 @@
             <div class="form-row">
                 <div class="form-group  col-md-3">
                     <asp:Label Text="Marca" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="MarcaTextBox" placeholder="Ingresar Marca" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="MarcaTextBox" placeholder="Ingresar Marca" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="MarcaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </div>
             </div>
@@ -68,14 +68,14 @@
                 <div class="form-group col-md-3">
                     <asp:Label Text="Modelo" runat="server" />
 
-                    <asp:TextBox type="text" class="form-control" ID="ModeloTextBox" placeholder="Ingresar Modelo" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="ModeloTextBox" placeholder="Ingresar Modelo" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="NombreRequiredFieldValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="ModeloTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <asp:Label Text="Color" runat="server" />
+                    <asp:Label Text="Color" AutoCompleteType="Disabled" runat="server" />
                     <asp:DropDownList ID="ColorDropDownList" runat="server" Class="form-control input-sm">
                         <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
                         <asp:ListItem Text="Azul"></asp:ListItem>
@@ -104,7 +104,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <asp:Label Text="Descripción" runat="server" />
+                    <asp:Label Text="Descripción" AutoCompleteType="Disabled" runat="server" />
                     <asp:TextBox type="text" class="form-control" ID="DescripcionTextBox" placeholder="Ingresar Descripción" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ingrese alguna descripción!" ControlToValidate="DescripcionTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
 

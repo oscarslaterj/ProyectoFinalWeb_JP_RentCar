@@ -42,7 +42,7 @@ namespace ProyectoFinalWeb_JPRentACar
             if (usuario != null)
             {
                 
-                FormsAuthentication.RedirectFromLoginPage(usuario.NombreUser, true);
+                FormsAuthentication.RedirectFromLoginPage(usuario.Nombre, true);
             }
             else
             {

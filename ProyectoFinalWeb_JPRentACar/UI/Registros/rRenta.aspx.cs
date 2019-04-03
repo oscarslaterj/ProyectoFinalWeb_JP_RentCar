@@ -12,12 +12,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 {
     public partial class rRenta : System.Web.UI.Page
     {
-        protected Rentas renta = new Rentas();
+        public static Rentas renta = new Rentas();
         private RepositorioBase<Clientes> repositorioCliente = new RepositorioBase<Clientes>();
         private RepositorioBase<Vehiculos> repositorioVehiculos = new RepositorioBase<Vehiculos>();
         private RentaRepositorio repositorioRenta = new RentaRepositorio();
 
-        private List<RentasDetalles> detalles = new List<RentasDetalles>();
+        public static List<RentasDetalles> detalles = new List<RentasDetalles>();
         private RepositorioBase<RentasDetalles> repositorioDetalle = new RepositorioBase<RentasDetalles>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -76,6 +76,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
                 {
                     if (repositorio.Guardar(GetRenta()))
                     {
+                        Response.Redirect("/UI/Reportes/ReciboRentaReportViewer.aspx");
                         //Poner();
                         Limpiar();
                         Utils.MostraMensaje(this, "Guardado", "Exito", "success");

@@ -31,7 +31,8 @@
                     <asp:Label Text="Fecha Registro" runat="server" />
                     <asp:TextBox ID="FechaTextBox" class="form-control input-group" TextMode="Date" runat="server" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="Guardar" runat="server" ErrorMessage="*" ControlToValidate="FechaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                    
+                    <asp:RangeValidator ErrorMessage="Fecha: Digite fecha valida" ValidationGroup="Guardar" Type="Date" MaximumValue="9999/12/28" MinimumValue="1000/12/28" Display="Dynamic" ForeColor="Red" ControlToValidate="FechaTextBox" runat="server" />
+
                 </div>
 
             </div>
@@ -40,7 +41,7 @@
             <div class="form-row">
                 <div class="form-group col-md-7">
                     <asp:Label Text="Nombres" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="NombresTextBox" placeholder="Ingresar Nombres" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="NombresTextBox" placeholder="Ingresar Nombres" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ValidationGroup="Guardar" ControlToValidate="NombresTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ValidationGroup="Guardar" ControlToValidate="NombresTextBox" ValidationExpression="^[a-z & A-Z]*$"></asp:RegularExpressionValidator>
 
@@ -61,7 +62,7 @@
 
                 <div class="form-group col-md-4">
                     <asp:Label Text="Cedula" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="CedulaTextBox" MaxLength="11" placeholder="Ingresar Cedula" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="CedulaTextBox" MaxLength="11" placeholder="Ingresar Cedula" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Cedula: Digite Cedula" ValidationGroup="Guardar" ControlToValidate="CedulaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:CustomValidator ID="CVCedulaMenor" OnServerValidate="CVCedulaMenor_ServerValidate" ErrorMessage="Cedula: Incorrecto" ControlToValidate="CedulaTextBox" SetFocusOnError="true" Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="Guardar" runat="server" />
                     <asp:RegularExpressionValidator ID="IdRegularExpressionValidator" runat="server" ControlToValidate="CedulaTextBox" ForeColor="Red" Display="Dynamic" ErrorMessage="Cedula: Solo numeros" ValidationExpression="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
@@ -76,7 +77,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <asp:Label Text="Teléfono" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="TelefonoTextBox" TextMode="Phone" placeholder="Ingresar Telefono" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="TelefonoTextBox" TextMode="Phone" placeholder="Ingresar Telefono" runat="server"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidaTelefono" runat="server" ErrorMessage='Campo "Telefono" solo acepta numeros' ControlToValidate="TelefonoTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Solo acepta numeros" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="ValidaVacioTelefono" runat="server" ErrorMessage="El campo &quot;Telefono&quot; esta vacio" ControlToValidate="TelefonoTextBox" ForeColor="Red" Display="Dynamic" ValidationGroup="Guardar"></asp:RequiredFieldValidator>
                      <asp:CustomValidator ID="CVTelefonoMenor" OnServerValidate="CVTelefonoMenor_ServerValidate" ErrorMessage="Telefono: Incorrecto" ControlToValidate="TelefonoTextBox" SetFocusOnError="true" Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="Guardar" runat="server" />
@@ -91,7 +92,7 @@
                     <asp:TextBox ID="VehiculosRentadosTextBox" ReadOnly="true" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-5">
-                    <asp:Label Text="Direccion" runat="server" />
+                    <asp:Label Text="Direccion" AutoCompleteType="Disabled" runat="server" />
                     <asp:TextBox type="text" class="form-control" ID="DireccionTextBox" placeholder="Ingresar Direccion" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="DireccionTextBox" ForeColor="Red" Display="Dynamic" ValidationGroup="Guardar"></asp:RequiredFieldValidator>
                 </div>

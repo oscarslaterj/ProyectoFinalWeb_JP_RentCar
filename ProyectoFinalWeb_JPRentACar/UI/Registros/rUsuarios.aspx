@@ -36,7 +36,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <asp:Label Text="Nombres" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="NombresTextBox" placeholder="Ingresar Nombres" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="NombresTextBox" placeholder="Ingresar Nombres" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" ValidationGroup="Guardar" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="NombresTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="NombreRegularExpressionValidator" ValidationGroup="Guardar" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="NombresTextBox" ValidationExpression="^[a-z & A-Z]*$"></asp:RegularExpressionValidator>
 
@@ -44,7 +44,7 @@
 
                 <div class="form-group col-md-4">
                     <asp:Label Text="Usuario" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="nomUserTextBox" placeholder="Ingresar Usuario" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="nomUserTextBox" placeholder="Ingresar Usuario" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="UserRequiredFieldValidator1" runat="server" ValidationGroup="Guardar" ErrorMessage="Ingrese algun nombre!" ControlToValidate="nomUserTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="UserRegularExpressionValidator1" ValidationGroup="Guardar" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="nomUserTextBox" ValidationExpression="^[a-z & A-Z]*$"></asp:RegularExpressionValidator>
 
@@ -66,7 +66,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <asp:Label Text="Contraseña" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="contraseñaTextBox" TextMode="Password" placeholder="Ingresar Contraseña" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="contraseñaTextBox" TextMode="Password" placeholder="Ingresar Contraseña" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="ContraValidar" runat="server" ValidationGroup="Guardar" ErrorMessage="El campo &quot;Contraseña&quot; esta vacio" ControlToValidate="ContraseñaTextBox" ForeColor="Red" Display="Dynamic" ToolTip="Campo Contraseña obligatorio" >*</asp:RequiredFieldValidator>
 
                 </div>
@@ -75,7 +75,7 @@
 
                 <div class="form-group col-md-4">
                     <asp:Label Text="Confirmar Contraseña" runat="server" />
-                    <asp:TextBox type="text" class="form-control" ID="ConfirmarContraseñaTextBox" TextMode="Password" placeholder="Confirmar Contraseña" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="ConfirmarContraseñaTextBox" TextMode="Password" placeholder="Confirmar Contraseña" runat="server"></asp:TextBox>
                     <asp:CompareValidator ID="ConfirmarContraseña" runat="server" ValidationGroup="Guardar" ErrorMessage="Las Contraseñas no son iguales" ControlToValidate="ConfirmarContraseñaTextBox" ControlToCompare="ContraseñaTextBox" ForeColor="Red" Display="Dynamic" ToolTip="Las Contraseñas no son iguales" >*</asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="ValidaConfirmarContraseña" runat="server" ValidationGroup="Guardar" ErrorMessage="El campo &quot;Nombres&quot; estas vacio" ControlToValidate="ConfirmarContraseñaTextBox" ForeColor="Red" Display="Dynamic" ToolTip="Campo Confirmar Contraseña obligatorio" >*</asp:RequiredFieldValidator>
                 </div>
