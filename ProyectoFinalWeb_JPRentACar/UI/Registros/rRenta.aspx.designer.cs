@@ -31,6 +31,15 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox RentaIDTextBox;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// BuscarLinkButton control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,31 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.LinkButton BuscarLinkButton;
         
         /// <summary>
-        /// RentarLinkButton control.
+        /// FechaRegistroTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton RentarLinkButton;
+        protected global::System.Web.UI.WebControls.TextBox FechaRegistroTextBox;
+        
+        /// <summary>
+        /// ClienteDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ClienteDropDownList;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// VehiculoDropDownList control.
@@ -58,13 +85,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.DropDownList VehiculoDropDownList;
         
         /// <summary>
-        /// ClienteDropDownList control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ClienteDropDownList;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// FechaRentaTextBox control.
@@ -94,15 +121,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox PlacaTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
         /// MarcaTextBox control.
         /// </summary>
         /// <remarks>
@@ -110,15 +128,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MarcaTextBox;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// ModeloTextBox control.
@@ -130,15 +139,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox ModeloTextBox;
         
         /// <summary>
-        /// NombreRequiredFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreRequiredFieldValidator;
-        
-        /// <summary>
         /// DescripcionTextBox control.
         /// </summary>
         /// <remarks>
@@ -146,33 +146,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// FechaRegistroTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaRegistroTextBox;
-        
-        /// <summary>
-        /// DetalleGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DetalleGridView;
         
         /// <summary>
         /// AgregarButton control.
@@ -184,13 +157,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.Button AgregarButton;
         
         /// <summary>
-        /// EliminarButton control.
+        /// DetalleGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EliminarButton;
+        protected global::System.Web.UI.WebControls.GridView DetalleGridView;
         
         /// <summary>
         /// NuevoLinkButton control.
@@ -200,6 +173,15 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton NuevoLinkButton;
+        
+        /// <summary>
+        /// RentarLinkButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton RentarLinkButton;
         
         /// <summary>
         /// EliminarLinkButton control.

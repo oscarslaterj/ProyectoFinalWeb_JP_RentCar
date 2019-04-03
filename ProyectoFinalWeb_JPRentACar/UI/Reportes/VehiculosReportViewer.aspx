@@ -1,11 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsuariosReportViewer.aspx.cs" Inherits="ProyectoFinalWeb_JPRentACar.UI.Reportes.UsuariosReportViewer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VehiculosReportViewer.aspx.cs" Inherits="ProyectoFinalWeb_JPRentACar.UI.Reportes.VehiculosReportViewer" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Reporte de Vehiculos - JP Rent A Car</title>
+    <title>Reporte Vehiculos - JP Rent A Car</title>
     <style>
         html,body,form,#div1{
             height: 100%;
@@ -15,9 +16,8 @@
 <body>
     <form id="form1" runat="server">
         <div id="div1">
-
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <rsweb:ReportViewer ID="VehiculosReportViewer" ProcessingMode="Remote" Height="100%" Width="100%"  runat="server">
+            <rsweb:ReportViewer ID="ListadoReportViewer" ProcessingMode="Remote" Height="100%" Width="100%" runat="server">
                 <ServerReport ReportPath="" ReportServerUrl="" />
             </rsweb:ReportViewer>
         </div>

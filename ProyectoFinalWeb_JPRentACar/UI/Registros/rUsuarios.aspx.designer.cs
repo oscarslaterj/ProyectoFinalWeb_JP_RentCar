@@ -13,15 +13,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
     public partial class rUsuarios {
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// usuarioidTextBox control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox usuarioidTextBox;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// BuscarLinkButton control.
@@ -49,13 +49,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox FechaTextBox;
         
         /// <summary>
-        /// TipoDropDownList control.
+        /// RFVFFecha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TipoDropDownList;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVFFecha;
         
         /// <summary>
         /// NombresTextBox control.
@@ -110,6 +110,24 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator UserRegularExpressionValidator1;
+        
+        /// <summary>
+        /// TipoDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TipoDropDownList;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// contraseñaTextBox control.

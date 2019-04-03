@@ -4,142 +4,166 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3>Registro de Alquiler</h3>
-    <!--Card body-->
-    <div class="card-body">
-        <!--Id-->
-        <div class="form-row">
-            <asp:Label ID="Label1" CssClass="col-form-label" Text="UserIdText" runat="server">Renta ID</asp:Label>
-            <div class="col-lg-3">
-                <div class="input-group">
-                    <asp:TextBox ID="RentaIDTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
-                    <div class="input-group-append">
-                        <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" CausesValidation="False">
+    <div class="container">
+
+
+        <!--Card body-->
+        <div class="card-body">
+            <!--Id-->
+            <div class="form-row">
+                <div class="col-lg-3">
+                    <asp:label id="Label1" cssclass="col-form-label" text="UserIdText" runat="server">Renta ID</asp:label>
+                    <div class="input-group">
+                        <asp:textbox id="RentaIDTextBox"  cssclass="form-control" textmode="Number" runat="server"></asp:textbox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="Buscar" runat="server" ErrorMessage="*" ControlToValidate="RentaIDTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
+                        <div class="input-group-append">
+                            <asp:linkbutton id="BuscarLinkButton" cssclass="btn btn-secondary" runat="server" onclick="BuscarLinkButton_Click" ValidationGroup="Buscar">
                                 <span class="fas fa-search"></span>
                                 Buscar
-                        </asp:LinkButton>
-                          <asp:LinkButton ID="RentarLinkButton" CssClass="btn btn-primary" OnClick="RentarLinkButton_Click" runat="server" CausesValidation="False">
+                        </asp:linkbutton>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <asp:label text="Fecha Registro" runat="server" />
+                    <asp:textbox id="FechaRegistroTextBox" class="form-control input-group" textmode="Date" runat="server" />
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <asp:label text="Cliente" runat="server" />
+                    <asp:dropdownlist id="ClienteDropDownList" appenddatabounditems="true" runat="server" readonly="true" class="form-control input-sm">
+                        <asp:ListItem Selected="True" Value="">Seleccione Uno</asp:ListItem>
+                    </asp:dropdownlist>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="Agregar" runat="server" ErrorMessage="Cliente: Seleccione" ControlToValidate="ClienteDropDownList" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <asp:label text="Vehiculo" runat="server" />
+                    <asp:dropdownlist  AutoPostBack="true" id="VehiculoDropDownList" appenddatabounditems="true" onselectedindexchanged="VehiculoDropDownList_SelectedIndexChanged" runat="server" readonly="true" class="form-control input-sm">
+                        <asp:ListItem Selected="True" Value="">Seleccione Uno</asp:ListItem>
+                    </asp:dropdownlist>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="Agregar" runat="server" ErrorMessage="Vehiculo: Seleccione" ControlToValidate="VehiculoDropDownList" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
+                </div>
+            </div>
+            
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <asp:label text="Fecha de Renta" runat="server" />
+                    <asp:textbox id="FechaRentaTextBox" class="form-control input-group" textmode="Date" runat="server" />
+
+                </div>
+
+                <div class="form-group col-md-3">
+                    <asp:label text="Fecha de Devuelta" runat="server" />
+                    <asp:textbox id="FechaDevueltaTextBox" class="form-control input-group" textmode="Date" runat="server" />
+
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <asp:label text="Placa" runat="server" />
+                    <asp:textbox type="text" readonly="true" class="form-control" id="PlacaTextBox" placeholder="Ingresar Placa" runat="server"></asp:textbox>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese alguna Placa!" ControlToValidate="PlacaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <asp:label text="Marca" runat="server" />
+                    <asp:textbox type="text" readonly="true" class="form-control" id="MarcaTextBox" placeholder="Ingresar Marca" runat="server"></asp:textbox>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="MarcaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <asp:label text="Modelo" runat="server" />
+                    <asp:textbox type="text" readonly="true" class="form-control" id="ModeloTextBox" placeholder="Ingresar Modelo" runat="server"></asp:textbox>
+                    <%--<asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="ModeloTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                </div>
+                <div class="form-group col-md-6">
+                    <asp:label text="Descripción" runat="server" />
+                    <asp:textbox type="text" readonly="true" class="form-control" id="DescripcionTextBox" placeholder="Ingresar Descripción" runat="server"></asp:textbox>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ingrese alguna descripción!" ControlToValidate="DescripcionTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <asp:button id="AgregarButton" ValidationGroup="Agregar" cssclass="btn btn-primary" onclick="AgregarButton_Click" runat="server" text="Agregar" />
+                    <%--<asp:Button ID="EliminarButton" CssClass="btn btn-danger" OnClick="EliminarButton_Click" runat="server" Text="Eliminar" />--%>
+                </div>
+            </div>
+            <!--Grid-->
+            <div class="row justify-content-center mt-3">
+                <div class="col-lg-11">
+                    <asp:gridview id="DetalleGridView" runat="server" allowpaging="true" pagesize="7"
+                        cssclass="table table-striped table-hover table-responsive-lg"
+                        autogeneratecolumns="False" datakeynames="DetalleId"
+                        onrowcancelingedit="DetalleGridView_RowCancelingEdit" onrowdeleting="DetalleGridView_RowDeleting" onrowediting="DetalleGridView_RowEditing" onrowupdating="DetalleGridView_RowUpdating">
+                        <Columns>
+                            <%--<asp:BoundField DataField="DetalleId" HeaderText="Id" />--%>
+                            <asp:TemplateField HeaderText="Id">
+                                <ItemTemplate>
+                                    <%#Container.DataItemIndex+1%>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="RentaId" HeaderText="Renta #" />
+                            <asp:BoundField DataField="VehiculoId" HeaderText="Vehiculo #" />                          
+                            <asp:BoundField DataField="Marca" HeaderText="Marca" />
+                            <asp:BoundField DataField="Modelo" HeaderText="Modelo" />
+                            <asp:BoundField DataField="Anio" HeaderText="Ano" />
+                            <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                            <asp:CommandField ButtonType="Link" ShowDeleteButton="true" />
+                        </Columns>
+                    </asp:gridview>
+                    <%--<asp:CustomValidator ID="CVDetalle" ValidationGroup="Guardar" OnServerValidate="CVDetalle_ServerValidate" Display="Dynamic" ForeColor="Red" Font-Bold="true" ErrorMessage="Grid Vacio" ControlToValidate="DetalleGridView" runat="server" />--%>
+                </div>
+            </div>
+
+
+            <div class="card-footer">
+                <!--Butones-->
+                <div class="form-group row justify-content-center">
+                    <!--Nuevo-->
+                    <div class="col-lg-1 mr-1">
+                        <asp:linkbutton id="NuevoLinkButton" cssclass="btn btn-primary" runat="server" onclick="NuevoLinkButton_Click">
+                        <span class="fas fa-plus"></span>
+                        Nuevo
+                </asp:linkbutton>
+                    </div>
+                    <div class="col-lg-1 mr-1">
+                        <asp:linkbutton id="RentarLinkButton" cssclass="btn btn-primary" onclick="RentarLinkButton_Click" runat="server" ValidationGroup="Agregar">
                                 <span class="fas fa-search"></span>
                                Rentar
-                        </asp:LinkButton>
+                        </asp:linkbutton>
+
+                    </div>
+                    <!--Eliminar-->
+                    <div class="col-lg-1 mr-3">
+                        <asp:linkbutton id="EliminarLinkButton" cssclass="btn btn-danger" runat="server" onclick="EliminarButton_Click">
+                        <span class="fas fa-trash-alt"></span>
+                        Eliminar
+                </asp:linkbutton>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="VehiculoDropDownList" class="col-md-3 control-label input-sm">Vehiculo</label>
-            <div class="col-md-8">
-                <asp:DropDownList AutoPostBack="true" ID="VehiculoDropDownList" AppendDataBoundItems="true" OnSelectedIndexChanged="VehiculoDropDownList_SelectedIndexChanged" runat="server" ReadOnly="true" Class="form-control input-sm">
-                    <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
-                </asp:DropDownList>
-            </div>
-            <div class="form-group">
-                <label for="TipoDropDownList" class="col-md-3 control-label input-sm">Cliente</label>
-                <div class="col-md-8">
-                    <asp:DropDownList ID="ClienteDropDownList" AppendDataBoundItems="true" runat="server" ReadOnly="true" Class="form-control input-sm">
-                        <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-            </div>
+
         </div>
     </div>
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Fecha de Renta</label>
-        <div class="col-lg-8 ">
-            <asp:TextBox ID="FechaRentaTextBox" class="form-control input-group" TextMode="Date" runat="server" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Fecha de Devuelta</label>
-        <div class="col-lg-8 ">
-            <asp:TextBox ID="FechaDevueltaTextBox" class="form-control input-group" TextMode="Date" runat="server" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Placa</label>
-        <div class="col-lg-8">
-            <asp:TextBox type="text" class="form-control" ID="PlacaTextBox" placeholder="Ingresar Placa" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese alguna Placa!" ControlToValidate="PlacaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Marca</label>
-        <div class="col-lg-8">
-            <asp:TextBox type="text" class="form-control" ID="MarcaTextBox" placeholder="Ingresar Marca" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="MarcaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Modelo</label>
-        <div class="col-lg-8">
-            <asp:TextBox type="text" class="form-control" ID="ModeloTextBox" placeholder="Ingresar Modelo" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="NombreRequiredFieldValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="ModeloTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Descripción</label>
-        <div class="col-lg-8">
-            <asp:TextBox type="text" class="form-control" ID="DescripcionTextBox" placeholder="Ingresar Descripción" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ingrese alguna descripción!" ControlToValidate="DescripcionTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-8 control-label">Fecha de Registro</label>
-        <div class="col-lg-8 ">
-            <asp:TextBox ID="FechaRegistroTextBox" class="form-control input-group" TextMode="Date" runat="server" />
-        </div>
-    </div>
-
-    <!--Grid-->
-    <div class="row justify-content-center mt-3">
-        <div class="col-lg-11">
-            <asp:GridView ID="DetalleGridView"  runat="server" AllowPaging="true" PageSize="7" CssClass="table table-striped table-hover table-responsive-lg" AutoGenerateColumns="False" >
-                <Columns>
-                    <asp:BoundField DataField="DetalleId" HeaderText ="Id" />   
-                    <asp:BoundField DataField="RentaId" HeaderText ="Tenta #" />   
-                    <asp:BoundField DataField="ClienteId" HeaderText ="Cliente #" />   
-                    <asp:BoundField DataField="VehiculoId" HeaderText ="Vehiculo #" />   
-                    <asp:BoundField DataField="Marca" HeaderText ="Marca" />   
-                    <asp:BoundField DataField="Modelo" HeaderText ="Modelo" />   
-                    <asp:BoundField DataField="Anio" HeaderText ="Ano" />   
-                    <asp:BoundField DataField="Precio" HeaderText ="Precio" />   
-                     
-                </Columns>
-            </asp:GridView>
-        </div>
-    </div>
-    <asp:Button ID="AgregarButton" OnClick="AgregarButton_Click" runat="server" Text="Agregar" />
-    <asp:Button ID="EliminarButton" OnClick="EliminarButton_Click" runat="server" Text="Eliminar" />
-
-    <div class="card-footer">
-        <!--Butones-->
-        <div class="form-group row justify-content-center">
-            <!--Nuevo-->
-            <div class="col-lg-1 mr-1">
-                <asp:LinkButton ID="NuevoLinkButton"  CssClass="btn btn-primary" runat="server" CausesValidation="False">
-                        <span class="fas fa-plus"></span>
-                        Nuevo
-                </asp:LinkButton>
-            </div>
-
-            <!--Eliminar-->
-            <div class="col-lg-1 mr-3">
-                <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" CausesValidation="False">
-                        <span class="fas fa-trash-alt"></span>
-                        Eliminar
-                </asp:LinkButton>
-            </div>
-        </div>
-    </div>
-
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>

@@ -8,8 +8,7 @@
         <%--Filtro--%>
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-primary" runat="server" />
-            <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="FiltroDropDownList_SelectedIndexChanged">
-                
+            <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="FiltroDropDownList_SelectedIndexChanged">                
                  <asp:ListItem>Todo</asp:ListItem>
                 <asp:ListItem>Cliente ID</asp:ListItem>
                 <asp:ListItem>Nombre</asp:ListItem>

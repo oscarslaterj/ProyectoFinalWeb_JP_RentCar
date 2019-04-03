@@ -312,6 +312,19 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="UI\Consultas\cClientes.aspx" />
     <Content Include="UI\Consultas\cRenta.aspx" />
     <Content Include="UI\Consultas\cUsuarios.aspx" />
@@ -321,7 +334,7 @@
     <Content Include="UI\Registros\rUsuarios.aspx" />
     <Content Include="UI\Registros\rVehiculos.aspx" />
     <Content Include="UI\Reportes\ClientesReportViewer.aspx" />
-    <Content Include="UI\Reportes\UsuariosReportViewer.aspx" />
+    <Content Include="UI\Reportes\UsuarioReportViewer.aspx" />
     <Content Include="UI\Reportes\VehiculosReportViewer.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -370,6 +383,7 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UI\Consultas\cClientes.aspx.cs">
       <DependentUpon>cClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -433,12 +447,12 @@
     <Compile Include="UI\Reportes\ClientesReportViewer.aspx.designer.cs">
       <DependentUpon>ClientesReportViewer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\UsuariosReportViewer.aspx.cs">
-      <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
+    <Compile Include="UI\Reportes\UsuarioReportViewer.aspx.cs">
+      <DependentUpon>UsuarioReportViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\UsuariosReportViewer.aspx.designer.cs">
-      <DependentUpon>UsuariosReportViewer.aspx</DependentUpon>
+    <Compile Include="UI\Reportes\UsuarioReportViewer.aspx.designer.cs">
+      <DependentUpon>UsuarioReportViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\VehiculosReportViewer.aspx.cs">
       <DependentUpon>VehiculosReportViewer.aspx</DependentUpon>

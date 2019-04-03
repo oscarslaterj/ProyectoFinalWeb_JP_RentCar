@@ -76,36 +76,38 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
             Usuarios usuarios = repositorio.Buscar(Utils.ToInt(usuarioidTextBox.Text));
-           
 
-         
 
-            if (usuarios == null)
+            if (IsValid)
             {
-                if (repositorio.Guardar(LlenaClase()))
+
+
+                if (usuarios == null)
                 {
-                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
-                    Limpiar();
+                    if (repositorio.Guardar(LlenaClase()))
+                    {
+                        Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                    }
+
                 }
                 else
                 {
-                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                    if (repositorio.Modificar(LlenaClase()))
+                    {
+                        Utils.MostraMensaje(this, "Modificado", "Exito", "success");
+                        Limpiar();
+                    }
+
+                    else
+                        Utils.MostraMensaje(this, "No Modificado", "Error", "error");
                 }
 
             }
-            else
-            {
-                if (repositorio.Modificar(LlenaClase()))
-                {
-                    Utils.MostraMensaje(this, "Modificado", "Exito", "success");
-                    Limpiar();
-                }
-
-                else
-                    Utils.MostraMensaje(this, "No Modificado", "Error", "error");
-            }
-
-
 
 
         }
@@ -115,35 +117,41 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
 
             Usuarios usuaario = repositorio.Buscar(Utils.ToInt(usuarioidTextBox.Text));
-
-            if (usuaario != null)
+            if (IsValid)
             {
-                if (repositorio.Eliminar(usuaario.UsuarioId))
+
+                if (usuaario != null)
                 {
-                    Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
-                    Limpiar();
+                    if (repositorio.Eliminar(usuaario.UsuarioId))
+                    {
+                        Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
+                        Limpiar();
+                    }
+                    else
+                        Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
                 }
                 else
-                    Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
+                    Utils.MostraMensaje(this, "No existe", "Error", "error");
             }
-            else
-                Utils.MostraMensaje(this, "No existe", "Error", "error");
         }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Usuarios> repositoriobase = new RepositorioBase<Usuarios>();
             Usuarios users = repositoriobase.Buscar(Utils.ToInt(usuarioidTextBox.Text));
-            if (users != null)
+            if (IsValid)
             {
-                FechaTextBox.Text = users.Fecha.ToString("yyyy-MM-dd");
-                NombresTextBox.Text = users.Nombre;
-                nomUserTextBox.Text = users.NombreUser;
-                Utils.MostraMensaje(this, "Busqueda exitosa", "Exito", "success");
-            }
-            else
-            {
-                Utils.MostraMensaje(this, "No Hay Resultado", "Error", "error");
+
+                if (users != null)
+                {
+                    LlenaCampos(users);
+                    Utils.MostraMensaje(this, "Busqueda exitosa", "Exito", "success");
+                }
+                else
+                {
+                    Limpiar();
+                    Utils.MostraMensaje(this, "No Hay Resultado", "Error", "error");
+                }
             }
         }
     }

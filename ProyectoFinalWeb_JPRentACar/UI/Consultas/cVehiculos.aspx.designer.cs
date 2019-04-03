@@ -10,7 +10,7 @@
 namespace ProyectoFinalWeb_JPRentACar.UI.Consultas {
     
     
-    public partial class rVehiculos {
+    public partial class cVehiculos {
         
         /// <summary>
         /// FiltroDropDownList control.

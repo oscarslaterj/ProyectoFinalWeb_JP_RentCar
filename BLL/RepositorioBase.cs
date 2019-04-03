@@ -21,6 +21,7 @@ namespace BLL
         public virtual T Buscar(int id)
         {
             T entity;
+            _contexto = new Contexto();
             try
             {
                 entity = _contexto.Set<T>().Find(id);
@@ -29,11 +30,16 @@ namespace BLL
             {
                 throw;
             }
+            finally
+            {
+                _contexto.Dispose();
+            }
             return entity;
         }
 
         public virtual bool Eliminar(int id)
         {
+            _contexto = new Contexto();
             bool paso = false;
             try
             {
@@ -52,6 +58,7 @@ namespace BLL
 
         public virtual List<T> GetList(Expression<Func<T, bool>> expression)
         {
+            _contexto = new Contexto();
             List<T> Lista = new List<T>();
             try
             {
@@ -67,6 +74,7 @@ namespace BLL
         public virtual bool Guardar(T entity)
         {
             bool paso = false;
+            _contexto = new Contexto();
             try
             {
                 if (_contexto.Set<T>().Add(entity) != null)
@@ -85,6 +93,7 @@ namespace BLL
         public virtual bool Modificar(T entity)
         {
             bool paso = false;
+            _contexto = new Contexto();
             try
             {
                 _contexto.Entry(entity).State = EntityState.Modified;

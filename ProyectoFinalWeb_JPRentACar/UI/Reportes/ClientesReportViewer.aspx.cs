@@ -19,7 +19,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Reportes
                 ListadoReportViewer.Reset();
                 ListadoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\UI\Reportes\ClientesReport.rdlc");
                 ListadoReportViewer.LocalReport.DataSources.Clear();
-                ListadoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("ClientesDataSet", cClientes.RetornarClientes()));
+                ListadoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("ClientesDataSet", cClientes.listClientes));
                 ListadoReportViewer.LocalReport.Refresh();
             }
         }

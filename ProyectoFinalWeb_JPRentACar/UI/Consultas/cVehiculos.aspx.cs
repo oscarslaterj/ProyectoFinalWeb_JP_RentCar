@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
 {
-    public partial class rVehiculos : System.Web.UI.Page
+    public partial class cVehiculos : System.Web.UI.Page
     
     {
         Expression<Func<Vehiculos, bool>> filtro = p => true;
@@ -31,7 +31,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             DateTime desde = Convert.ToDateTime(DesdeTextBox.Text);
             DateTime hasta = Convert.ToDateTime(HastaTextBox.Text);
 
-            if (hasta.Date < desde.Date)
+            if (hasta < desde)
             {
                 Utils.MostraMensaje(this, "No Sera Posible Hacer Una Consulta Si El Rango Hasta Es Menor Que El Desde!!", "Fechas Invalidas!!", "warning");
                 return;
@@ -61,14 +61,10 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             VehiculosGridView.DataBind();
         }
 
-        public static List<Vehiculos> RetornarVehiculos()
-        {
-            return listVehiculos;
-        }
-
+    
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Reportes/VehiculosReportViewer.aspx");
+            Response.Redirect("/UI/Reportes/VehiculosReportViewer.aspx");
         }
 
         protected void FiltroDropDownList_SelectedIndexChanged(object sender, EventArgs e)

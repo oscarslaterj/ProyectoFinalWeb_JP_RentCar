@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clientes.cs" />
-    <Compile Include="Renta.cs" />
-    <Compile Include="RentasDetalle.cs" />
+    <Compile Include="Rentas.cs" />
+    <Compile Include="RentasDetalles.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Vehiculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

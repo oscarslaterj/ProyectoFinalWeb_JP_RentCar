@@ -52,10 +52,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         public void LlenaCampos(Clientes cliente)
         {
-            Limpiar();
+
+            ClienteIdTextBox.Text = cliente.ClienteId.ToString();
             FechaTextBox.Text = cliente.FechaRegistro.ToString("yyy-MM-dd");
             FechaNacimientoTextBox.Text = cliente.FechaNacimiento.ToString("yyyy-MM-dd");
             NombresTextBox.Text = cliente.Nombre;
+            SexoDropDownList.Text = cliente.Sexo;
             TelefonoTextBox.Text = cliente.Telefono;
             CedulaTextBox.Text = cliente.Cedula;
             DireccionTextBox.Text = cliente.Direccion;
@@ -65,17 +67,21 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
-
             var cliente = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
-            if (cliente != null)
+            if (IsValid)
             {
-                LlenaCampos(cliente);
-                Utils.MostraMensaje(this, "Busqueda exitosa", "Exito", "success");
-            }
-            else
-            {
-                Limpiar();
-                Utils.MostraMensaje(this, "No Hay Resultado", "Error", "error");
+
+
+                if (cliente != null)
+                {
+                    LlenaCampos(cliente);
+                    Utils.MostraMensaje(this, "Busqueda exitosa", "Exito", "success");
+                }
+                else
+                {
+                    Limpiar();
+                    Utils.MostraMensaje(this, "No Hay Resultado", "Error", "error");
+                }
             }
         }
 
@@ -86,56 +92,82 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         protected void GuardarLinkButton_Click(object sender, EventArgs e)
         {
-           
+
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
             Clientes cliente = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
-
-            
-            if (cliente == null)
+            var cedulaExitentes = repositorio.GetList(x => true);
+            cliente = LlenaClase();
+            if (IsValid)
             {
-                if (repositorio.Guardar(LlenaClase()))
+                if (cliente.ClienteId == 0)
                 {
-                    Utils.MostraMensaje(this, "Guardado", "Exito", "success");
-                    Limpiar();
+                    if (!cedulaExitentes.Exists(c => c.Cedula == cliente.Cedula)) 
+                    {
+
+
+                        if (repositorio.Guardar(cliente))
+                        {
+                            Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            Utils.MostraMensaje(this, "No Guardado", "Fallo", "error");
+                        }
+                    }
+                    else
+                    {
+                        Utils.MostraMensaje(this, "# Cedula Existente", "Fallo", "error");
+                    }
                 }
                 else
                 {
-                    Utils.MostraMensaje(this, "No Guardado", "Exito", "success");
-                }
+                    if (repositorio.Modificar(LlenaClase()))
+                    {
+                        Utils.MostraMensaje(this, "Modificado", "Exito", "info");
+                        Limpiar();
+                    }
 
-            }
-            else
-            {
-                if (repositorio.Modificar(LlenaClase()))
-                {
-                    Utils.MostraMensaje(this, "Modificado", "Exito", "success");
-                    Limpiar();
+                    else
+                        Utils.MostraMensaje(this, "No Modificado", "Error", "error");
                 }
-
-                else
-                    Utils.MostraMensaje(this, "No Modificado", "Error", "error");
             }
         }
 
         protected void EliminarLinkButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
-            
-
             Clientes cliente = repositorio.Buscar(Utils.ToInt(ClienteIdTextBox.Text));
-
-            if (cliente != null)
+            if (IsValid)
             {
-                if (repositorio.Eliminar(cliente.ClienteId))
+
+
+                if (cliente != null)
                 {
-                    Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
-                    Limpiar();
+                    if (repositorio.Eliminar(cliente.ClienteId))
+                    {
+                        Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
+                        Limpiar();
+                    }
+                    else
+                        Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
                 }
                 else
-                    Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
+                    Utils.MostraMensaje(this, "No existe", "Error", "error");
             }
-            else
-                Utils.MostraMensaje(this, "No existe", "Error", "error");
+        }
+
+        protected void CVCedulaMenor_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int cedula = CedulaTextBox.Text.Length;
+            args.IsValid = cedula < 11 ? false : true;
+        }
+
+        protected void CVTelefonoMenor_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int tel = TelefonoTextBox.Text.Length;
+            args.IsValid = tel < 10 ? false : true;
+
         }
     }
-    }
+}

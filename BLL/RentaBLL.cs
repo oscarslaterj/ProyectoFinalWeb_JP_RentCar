@@ -12,7 +12,7 @@ namespace BLL
 {
     public class RentaBLL
     {
-        public static bool Guardar(Renta renta)
+        public static bool Guardar(Rentas renta)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -32,7 +32,7 @@ namespace BLL
             return paso;
         }
 
-        public static bool Modificar(Renta renta)
+        public static bool Modificar(Rentas renta)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -63,7 +63,7 @@ namespace BLL
             return paso;
         }
 
-        private static bool GuardarDetalle(RentasDetalle Detalle)
+        private static bool GuardarDetalle(RentasDetalles Detalle)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -104,10 +104,10 @@ namespace BLL
             return paso;
         }
 
-        public static Renta Buscar(int Id)
+        public static Rentas Buscar(int Id)
         {
             Contexto db = new Contexto();
-            Renta renta = new Renta();
+            Rentas renta = new Rentas();
             try
             {
                 renta = db.Renta.Find(Id);
@@ -126,9 +126,9 @@ namespace BLL
         }
 
 
-        public static List<Renta> GetList(Expression<Func<Renta, bool>> renta)
+        public static List<Rentas> GetList(Expression<Func<Rentas, bool>> renta)
         {
-            List<Renta> Lista = new List<Renta>();
+            List<Rentas> Lista = new List<Rentas>();
             Contexto db = new Contexto();
             try
             {

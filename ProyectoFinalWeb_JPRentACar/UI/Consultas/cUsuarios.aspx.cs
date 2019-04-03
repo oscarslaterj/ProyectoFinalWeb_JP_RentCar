@@ -31,6 +31,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             DateTime desde = Convert.ToDateTime(DesdeTextBox.Text);
             DateTime hasta = Convert.ToDateTime(HastaTextBox.Text);
 
+            if (hasta < desde)
+            {
+                Utils.MostraMensaje(this, "No Sera Posible Hacer Una Consulta Si El Rango Hasta Es Menor Que El Desde!!", "Fechas Invalidas!!", "warning");
+                return;
+            }
+
             switch (FiltroDropDownList.SelectedIndex)
             {
                 case 0://Todo
@@ -58,16 +64,13 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             UsuarioGridView.DataBind();
         }
 
-        public static List<Usuarios> RetornarUsuarios()
-        {
-            return listUsuarios;
-        }
+      
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
             if (listUsuarios.Count > 0)
             {
-                Response.Redirect("/Reportes/UsuariosReportViewer.aspx");
+                Response.Redirect("/UI/Reportes/UsuarioReportViewer.aspx");
             }
             else
             {

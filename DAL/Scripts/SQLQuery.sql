@@ -1,4 +1,4 @@
-CREATE DATABASE ProyectoFinalDb
+create DATABASE ProyectoFinalDb
 GO
 USE ProyectoFinalDb
 GO
@@ -13,7 +13,7 @@ Tipo varchar (15)
 
 );
 
-INSERT INTO Usuarios(Fecha,Nombre,NombreUser,Clave,Tipo) VALUES('2019/03/27','Oscar','Oscar Slater','123','Administrador' );
+INSERT INTO Usuarios(Fecha,Nombre,NombreUser,Clave,Tipo) VALUES('2019/03/27','Admin','root','123','Administrador' );
 
 create table Clientes(
 
@@ -29,9 +29,8 @@ VehiculosRentados int
 
 );
 
-create table RentasDetalle(
+create table RentasDetalles(
 DetalleId int identity (1,1) primary key,
-ClienteId int,
 VehiculoId int,
 RentaId int,
 Anio int,
@@ -40,10 +39,11 @@ Modelo varchar (30),
 Precio decimal
 );
 
-create table Renta(
+create table Rentas(
 RentaId int identity (1,1) primary key,
 FechaRegistro date,
-FechaDevuelta date
+FechaDevuelta date,
+ClienteId int,
 );
 
 

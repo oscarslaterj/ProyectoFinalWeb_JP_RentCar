@@ -10,7 +10,7 @@
 namespace ProyectoFinalWeb_JPRentACar.UI.Reportes {
     
     
-    public partial class UsuariosReportViewer {
+    public partial class UsuarioReportViewer {
         
         /// <summary>
         /// form1 control.
@@ -31,12 +31,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Reportes {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// VehiculosReportViewer control.
+        /// ListadoReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer VehiculosReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ListadoReportViewer;
     }
 }
