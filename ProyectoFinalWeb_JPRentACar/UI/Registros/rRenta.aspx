@@ -134,6 +134,13 @@
                 </div>
             </div>
 
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <asp:Label Text="Monto Total"  runat="server" />
+                    <asp:TextBox ID="MontoTextBox" CssClass="form-control" ReadOnly="true" runat="server" />
+                </div>
+            </div>
+
 
             <div class="card-footer">
                 <!--Butones-->

@@ -16,6 +16,7 @@ namespace Entities
         public DateTime FechaRegistro { get; set; }
         public DateTime FechaDevuelta { get; set; }
         public int ClienteId { get; set; }
+        public decimal Monto { get; set; }
 
         public virtual List<RentasDetalles> Detalle { get; set; }
 
@@ -30,6 +31,7 @@ namespace Entities
             FechaDevuelta = DateTime.Now;
             ClienteId = 0;
             Detalle = new List<RentasDetalles>();
+            Monto = 0;
         }
 
         public void AgregarDetalle(int idRenta, int idVehiculo, int anio, string marca, string modelo, decimal precio)

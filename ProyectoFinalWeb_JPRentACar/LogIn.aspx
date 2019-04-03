@@ -28,12 +28,12 @@
                     </span>
 
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Introducir Usuario">
-                        <asp:TextBox CssClass="input100" placeholder="Usuario" ID="UsuarioTextBox" runat="server" />
+                        <asp:TextBox CssClass="input100" AutoCompleteType="Disabled" placeholder="Usuario" ID="UsuarioTextBox" runat="server" />
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Introducir Contraseña">
-                        <asp:TextBox CssClass="input100" placeholder="Contrasena" ID="PassTextBox" TextMode="Password" runat="server" />
+                        <asp:TextBox CssClass="input100" AutoCompleteType="Disabled" placeholder="Contrasena" ID="PassTextBox" TextMode="Password" runat="server" />
                         <span class="focus-input100"></span>
                     </div>
 

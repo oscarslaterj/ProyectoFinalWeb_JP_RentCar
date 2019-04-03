@@ -77,7 +77,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <asp:Label Text="Teléfono" runat="server" />
-                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="TelefonoTextBox" TextMode="Phone" placeholder="Ingresar Telefono" runat="server"></asp:TextBox>
+                    <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="TelefonoTextBox" TextMode="Phone" MaxLength="10" placeholder="Ingresar Telefono" runat="server"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidaTelefono" runat="server" ErrorMessage='Campo "Telefono" solo acepta numeros' ControlToValidate="TelefonoTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Solo acepta numeros" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="ValidaVacioTelefono" runat="server" ErrorMessage="El campo &quot;Telefono&quot; esta vacio" ControlToValidate="TelefonoTextBox" ForeColor="Red" Display="Dynamic" ValidationGroup="Guardar"></asp:RequiredFieldValidator>
                      <asp:CustomValidator ID="CVTelefonoMenor" OnServerValidate="CVTelefonoMenor_ServerValidate" ErrorMessage="Telefono: Incorrecto" ControlToValidate="TelefonoTextBox" SetFocusOnError="true" Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="Guardar" runat="server" />
@@ -94,7 +94,7 @@
                 <div class="form-group col-md-5">
                     <asp:Label Text="Direccion" AutoCompleteType="Disabled" runat="server" />
                     <asp:TextBox type="text" class="form-control" ID="DireccionTextBox" placeholder="Ingresar Direccion" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="DireccionTextBox" ForeColor="Red" Display="Dynamic" ValidationGroup="Guardar"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Direccion: Rellene Correctamente" Font-Bold="true" ControlToValidate="DireccionTextBox" ForeColor="Red" Display="Dynamic" ValidationGroup="Guardar"></asp:RequiredFieldValidator>
                 </div>
             </div>
         </div>

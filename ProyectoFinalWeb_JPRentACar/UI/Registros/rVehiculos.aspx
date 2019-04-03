@@ -52,7 +52,7 @@
                 <div class="form-group col-md-3">
                     <asp:Label Text="Placa" runat="server" />
                     <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="PlacaTextBox" placeholder="Ingresar Placa" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese alguna Placa!" ControlToValidate="PlacaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ingrese alguna Placa!" ControlToValidate="PlacaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
 
             </div>
@@ -60,7 +60,7 @@
                 <div class="form-group  col-md-3">
                     <asp:Label Text="Marca" runat="server" />
                     <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="MarcaTextBox" placeholder="Ingresar Marca" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="MarcaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ValidationGroup="Guardar" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="MarcaTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                     <asp:Label Text="Modelo" runat="server" />
 
                     <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="ModeloTextBox" placeholder="Ingresar Modelo" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="NombreRequiredFieldValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="ModeloTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="NombreRequiredFieldValidator" runat="server" ErrorMessage="Ingrese algun nombre!" ControlToValidate="ModeloTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
                 <div class="form-group col-md-3">
                     <asp:Label Text="Color" AutoCompleteType="Disabled" runat="server" />
                     <asp:DropDownList ID="ColorDropDownList" runat="server" Class="form-control input-sm">
-                        <asp:ListItem Selected="True">Seleccione Uno</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="">Seleccione Uno</asp:ListItem>
                         <asp:ListItem Text="Azul"></asp:ListItem>
                         <asp:ListItem Text="Rojo"></asp:ListItem>
                         <asp:ListItem Text="Amarillo"></asp:ListItem>
@@ -87,7 +87,7 @@
                         <asp:ListItem Text="Dorado"></asp:ListItem>
                         <asp:ListItem Text="PlateadO"></asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="RequiredFieldValidator6" runat="server" ErrorMessage="Color: Seleccione" ControlToValidate="ColorDropDownList" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="RequiredFieldValidator6" runat="server" ErrorMessage="Color: Seleccione" ControlToValidate="ColorDropDownList" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="form-row">
@@ -95,7 +95,7 @@
                     <asp:Label Text="Año" runat="server" />
                     <div class="input-group">
                         <asp:TextBox ID="AñoTextBox" CssClass="form-control" TextMode="Number" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ingrese año!" ControlToValidate="AñoTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ValidationGroup="Guardar"  ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ingrese año!" ControlToValidate="AñoTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="IdRegularExpressionValidator" runat="server" ControlToValidate="AñoTextBox" ForeColor="Red" Display="Dynamic" ErrorMessage="Año: Solo numeros" ValidationExpression="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
                     </div>
                 </div>

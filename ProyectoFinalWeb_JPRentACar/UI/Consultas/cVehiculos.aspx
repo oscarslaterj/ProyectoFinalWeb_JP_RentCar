@@ -52,11 +52,13 @@
             <AlternatingRowStyle BackColor="SkyBlue" />
             <Columns>
                 <asp:BoundField DataField="VehiculoId" HeaderText="Vehiculo Id" />
-                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                <asp:BoundField DataField="FechaRegistro" HeaderText="Fecha" />
+                <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
+                <asp:BoundField DataField="Placa" HeaderText="Placa" />
                 <asp:BoundField DataField="Marca" HeaderText="Marca" />
                 <asp:BoundField DataField="Modelo" HeaderText="Modelo" />
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-                <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                <asp:BoundField DataField="PrecioRenta" HeaderText="Precio" />
 
             </Columns>
 

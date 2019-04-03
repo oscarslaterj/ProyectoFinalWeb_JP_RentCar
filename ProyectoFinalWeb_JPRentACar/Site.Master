@@ -79,11 +79,12 @@
                 
             </asp:ContentPlaceHolder>
         </div>
-        
+        <asp:LoginStatus ID="LoginStatus1" LogoutAction="RedirectToLoginPage" LogoutText="Cerrar Sesion" runat="server" />
     </form>
   
     
     <div>
+        
         <%--contenedor y pie de pagina--%>
         <div class=" container body-content">
             

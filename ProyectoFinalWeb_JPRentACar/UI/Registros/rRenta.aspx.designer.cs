@@ -166,6 +166,15 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros {
         protected global::System.Web.UI.WebControls.GridView DetalleGridView;
         
         /// <summary>
+        /// MontoTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox MontoTextBox;
+        
+        /// <summary>
         /// NuevoLinkButton control.
         /// </summary>
         /// <remarks>
