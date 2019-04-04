@@ -76,24 +76,30 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
             Usuarios usuarios = repositorio.Buscar(Utils.ToInt(usuarioidTextBox.Text));
-
-
+            usuarios = LlenaClase();
+            var userExist = repositorio.GetList(x => true);
             if (IsValid)
             {
 
 
-                if (usuarios == null)
+                if (usuarios.UsuarioId == 0)
                 {
-                    if (repositorio.Guardar(LlenaClase()))
+                    if (!userExist.Exists(u => u.NombreUser == usuarios.NombreUser))
                     {
-                        Utils.MostraMensaje(this, "Guardado", "Exito", "success");
-                        Limpiar();
+                        if (repositorio.Guardar(usuarios))
+                        {
+                            Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                        }
                     }
                     else
                     {
-                        Utils.MostraMensaje(this, "Guardado", "Exito", "success");
+                        Utils.MostraMensaje(this, "Nombre Usuarios Existe", "Fallo", "error");
                     }
-
                 }
                 else
                 {

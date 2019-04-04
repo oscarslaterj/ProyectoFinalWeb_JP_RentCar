@@ -21,17 +21,16 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!Page.IsPostBack)
             {
-
+               
                 FechaRegistroTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 FechaDevueltaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 FechaRentaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 LlenaDropDown();
                 ViewState.Add("Detale", detalles);
                 ViewState.Add("Renta", renta);
-                //ViewState.Add("Detalle", detalles);
-                //ViewState.Add("Renta", renta);
 
             }
         }
@@ -71,7 +70,8 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
                 {
                     if (repositorio.Guardar(GetRenta()))
                     {
-                       // Response.Redirect("/UI/Reportes/ReciboRentaReportViewer.aspx");
+                        Response.Redirect("/UI/Reportes/ReciboRentaReportViewer.aspx");
+                        //Response.Write("<script> window.open('" + "/UI/Reportes/ReciboRentaReportViewer.aspx" + "','_blank'); </script>");
                         //Poner();
                         Limpiar();
                         Utils.MostraMensaje(this, "Guardado", "Exito", "success");
@@ -239,12 +239,12 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         private void Limpiar()
         {
-            renta = new Rentas();
-            detalles = new List<RentasDetalles>();
-            repositorioCliente = new RepositorioBase<Clientes>();
-            repositorioDetalle = new RepositorioBase<RentasDetalles>();
-            repositorioRenta = new RentaRepositorio();
-            repositorioVehiculos = new RepositorioBase<Vehiculos>();
+            //renta = new Rentas();
+            //detalles = new List<RentasDetalles>();
+            //repositorioCliente = new RepositorioBase<Clientes>();
+            //repositorioDetalle = new RepositorioBase<RentasDetalles>();
+            //repositorioRenta = new RentaRepositorio();
+            //repositorioVehiculos = new RepositorioBase<Vehiculos>();
             RentaIDTextBox.Text = "";
             FechaDevueltaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             FechaRegistroTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -257,6 +257,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             DescripcionTextBox.Text = "";
             DetalleGridView.DataSource = null;
             DetalleGridView.DataBind();
+            MontoTextBox.Text = "";
             ViewState["Renta"] = null;
         }
 
@@ -266,6 +267,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             FechaDevueltaTextBox.Text = renta.FechaDevuelta.ToString("yyyy-MM-dd");
             FechaRentaTextBox.Text = renta.FechaRegistro.ToString("yyyy-MM-dd");
             ClienteDropDownList.Text = renta.ClienteId.ToString();
+            MontoTextBox.Text = renta.Monto.ToString();
             foreach (var item in renta.Detalle)
             {
 
