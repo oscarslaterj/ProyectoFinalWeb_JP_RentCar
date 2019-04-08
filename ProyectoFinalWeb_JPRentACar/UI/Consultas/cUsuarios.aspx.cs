@@ -40,22 +40,22 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             switch (FiltroDropDownList.SelectedIndex)
             {
                 case 0://Todo
-                    filtro = p => true && p.Fecha >= desde && p.Fecha <= hasta;
+                    filtro = p => true;
                     break;
 
                 case 1://UsuarioId
                     id = Utils.ToInt(CriterioTextBox.Text);
-                    filtro = p => p.UsuarioId == id && p.Fecha >= desde && p.Fecha <= hasta;
+                    filtro = p => p.UsuarioId == id && (p.Fecha >= desde && p.Fecha <= hasta);
                     break;
 
                 case 2://Usuario
-                    filtro = p => p.NombreUser.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
+                    filtro = p => p.NombreUser.Contains(CriterioTextBox.Text) && (p.Fecha >= desde && p.Fecha <= hasta);
                     break;
                 case 3://Tipo
-                    filtro = p => p.Tipo.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
+                    filtro = p => p.Tipo.Contains(CriterioTextBox.Text) && (p.Fecha >= desde && p.Fecha <= hasta);
                     break;
                 case 4://Nombre
-                    filtro = p => p.Nombre.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
+                    filtro = p => p.Nombre.Contains(CriterioTextBox.Text) && (p.Fecha >= desde && p.Fecha <= hasta);
                     break;
             }
 

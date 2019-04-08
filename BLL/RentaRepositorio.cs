@@ -11,29 +11,46 @@ namespace BLL
 {
     public class RentaRepositorio : RepositorioBase<Rentas>
     {
+        public RentaRepositorio():base()
+        {
+            
+        }
+
         public override bool Guardar(Rentas renta)
         {
             bool paso = false;
-            _contexto = new DAL.Contexto();
 
             try
             {
+                Clientes cliente = new Clientes(
+                    renta.Clientes.ClienteId,
+                    renta.Clientes.Nombre,
+                    renta.Clientes.Cedula,
+                    renta.Clientes.Direccion,
+                    renta.Clientes.Telefono,
+                    DateTime.Parse(renta.Clientes.FechaNacimiento.ToString("yyyy-MM-dd")),
+                    renta.Clientes.VehiculosRentados                    
+                    );
+                cliente.FechaRegistro = DateTime.Parse(renta.Clientes.FechaRegistro.ToString("yyyy-MM-dd"));
+                renta.Clientes = null;
                 var cantidad = renta.Detalle.Count;
-                if (_contexto.Renta.Add(renta) != null)
-                {
-                    _contexto.Clientes.Find(renta.ClienteId).VehiculosRentados += cantidad;
-                    _contexto.SaveChanges();
-                    paso = true;
-                }
+                cliente.VehiculosRentados += cantidad;
+
+                _contexto.Renta.Add(renta);
+               _contexto.Clientes.Attach(cliente);
+               _contexto.Entry(cliente).State = EntityState.Modified;
+
+                //var cliente = _contexto.Clientes.Find(renta.ClienteId);
+                //cliente.VehiculosRentados += cantidad;
+                _contexto.SaveChanges();
+                paso = true;
+                
             }
             catch (Exception)
             {
                 throw;
             }
-            finally
-            {
-                _contexto.Dispose();
-            }
+           
 
             return paso;
         }
@@ -57,10 +74,7 @@ namespace BLL
 
                 throw;
             }
-            finally
-            {
-                _contexto.Dispose();
-            }
+          
             return paso;
         }
 
@@ -69,74 +83,67 @@ namespace BLL
         public override bool Modificar(Rentas renta)
         {
             bool paso = false;
-            _contexto = new DAL.Contexto();
 
             try
             {
-
-                var rentaAnt = _contexto.Renta.Find(renta.RentaId);
-                var detalleAnt = _contexto.Rentadetalle.Where(r => r.RentaId == rentaAnt.RentaId).AsNoTracking().ToList();
+               
+                var rentaAnt = _contexto.Renta.Where(x => x.RentaId == renta.RentaId).AsNoTracking().FirstOrDefault();
+                //var detalleAnt = _contexto.Rentadetalle.Where(r => r.RentaId == rentaAnt.RentaId).AsNoTracking().ToList();
                 var cantidad = rentaAnt.Detalle.Count;
 
-                _contexto.Entry(rentaAnt).State = EntityState.Deleted;
-                _contexto.Entry(renta).State = EntityState.Modified;
-                _contexto.Clientes.Find(rentaAnt.ClienteId).VehiculosRentados += cantidad;
-                if (_contexto.SaveChanges() > 0)
+                foreach(var item in rentaAnt.Detalle)
                 {
-                    paso = true;
+                    _contexto.Entry(item).State = (renta.Detalle.Contains(item)) ? EntityState.Modified : EntityState.Deleted;                    
                 }
+
+                foreach (var item in renta.Detalle)
+                {
+                    _contexto.Entry(item).State = (rentaAnt.Detalle.Contains(item)) ? EntityState.Modified : EntityState.Added;                    
+                }
+
+                renta.Clientes.VehiculosRentados += cantidad;
+                _contexto.Entry(rentaAnt).State = EntityState.Modified;
+                _contexto.Entry(renta).State = EntityState.Modified;
+                _contexto.SaveChanges();               
+                paso = true;               
             }
             catch (Exception)
             {
                 throw;
             }
-            finally
-            {
-                _contexto.Dispose();
-            }
-
+          
             return paso;
         }
 
         public override bool Eliminar(int id)
         {
             bool paso = false;
-            _contexto = new DAL.Contexto();
             try
-            {
-               
-                var Ant = _contexto.Renta.Find(id);
-                var cantidad = Ant.Detalle.Count;
-                if (Ant != null)
-                {
-                    _contexto.Rentadetalle.RemoveRange(_contexto.Rentadetalle.Where(x => x.RentaId == Ant.RentaId));
-                    _contexto.Entry(Ant).State = System.Data.Entity.EntityState.Deleted;
-                    _contexto.Clientes.Find(Ant.ClienteId).VehiculosRentados -= cantidad;
-                    if (_contexto.SaveChanges() > 0)
-                    {
-                        paso = true;
-                    }
-                }
+            {              
+                var renta = _contexto.Renta.Find(id);
+                var cantidad = renta.Detalle.Count;
 
+                //_contexto.Rentadetalle.RemoveRange(_contexto.Rentadetalle.Where(x => x.RentaId == Ant.RentaId));
+                //_contexto.Entry(Ant).State = System.Data.Entity.EntityState.Deleted;
+                var cliente = _contexto.Clientes.Find(renta.ClienteId);
+                cliente.VehiculosRentados -= cantidad;
+                _contexto.Entry(cliente).State = EntityState.Modified;
+                _contexto.Renta.Remove(renta);
+                _contexto.SaveChanges();
+                
+                paso = true;         
             }
             catch (Exception)
             {
-
-            }
-            finally
-            {
-                _contexto.Dispose();
-            }
-
-
-
+                throw;
+            } 
+            
             return paso;
         }
 
         public override Rentas Buscar(int id)
         {
             Rentas renta = new Rentas();
-            _contexto = new DAL.Contexto();
             try
             {
                 renta = _contexto.Renta.Find(id);
@@ -154,10 +161,7 @@ namespace BLL
             {
                 throw;
             }
-            finally
-            {
-                _contexto.Dispose();
-            }
+           
 
 
             return renta;
@@ -165,7 +169,6 @@ namespace BLL
 
         public override List<Rentas> GetList(Expression<Func<Rentas, bool>> expression)
         {
-            _contexto = new DAL.Contexto();
             List<Rentas> lista = new List<Rentas>();
             try
             {
@@ -179,10 +182,7 @@ namespace BLL
             {
                 throw;
             }
-            finally
-            {
-                _contexto.Dispose();
-            }
+           
 
             return lista;
         }

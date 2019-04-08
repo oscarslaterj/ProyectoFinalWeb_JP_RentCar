@@ -15,10 +15,9 @@
                     <asp:label id="Label1" cssclass="col-form-label" text="UserIdText" runat="server">Renta ID</asp:label>
                     <div class="input-group">
                         <asp:textbox id="RentaIDTextBox"  cssclass="form-control" textmode="Number" runat="server"></asp:textbox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="Buscar" runat="server" ErrorMessage="*" ControlToValidate="RentaIDTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     
                         <div class="input-group-append">
-                            <asp:linkbutton id="BuscarLinkButton" cssclass="btn btn-secondary" runat="server" onclick="BuscarLinkButton_Click" ValidationGroup="Buscar">
+                            <asp:linkbutton id="BuscarLinkButton" cssclass="btn btn-secondary" runat="server" onclick="BuscarLinkButton_Click" CausesValidation="false">
                                 <span class="fas fa-search"></span>
                                 Buscar
                         </asp:linkbutton>
@@ -112,8 +111,9 @@
                 <div class="col-lg-11">
                     <asp:gridview id="DetalleGridView" runat="server" allowpaging="true" pagesize="7"
                         cssclass="table table-striped table-hover table-responsive-lg"
-                        autogeneratecolumns="False" datakeynames="DetalleId"
-                        onrowcancelingedit="DetalleGridView_RowCancelingEdit" onrowdeleting="DetalleGridView_RowDeleting" onrowediting="DetalleGridView_RowEditing" onrowupdating="DetalleGridView_RowUpdating">
+                        autogeneratecolumns="False" 
+                        datakeynames="DetalleId"
+                        onrowdeleting="DetalleGridView_RowDeleting" >
                         <Columns>
                             <%--<asp:BoundField DataField="DetalleId" HeaderText="Id" />--%>
                             <asp:TemplateField HeaderText="Id">

@@ -23,15 +23,18 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         {
             
             if (!Page.IsPostBack)
-            {
-               
+            {               
                 FechaRegistroTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 FechaDevueltaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 FechaRentaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 LlenaDropDown();
-                ViewState.Add("Detale", detalles);
+                ViewState.Add("Detalle", detalles);
                 ViewState.Add("Renta", renta);
 
+            }
+            else
+            {
+                detalles = (List<RentasDetalles>)ViewState["Detalle"];
             }
         }
 
@@ -52,8 +55,9 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             renta.ClienteId = Utils.ToInt(ClienteDropDownList.SelectedValue);
             renta.Detalle = detalles;
             renta.Monto = Utils.ToDecimal(MontoTextBox.Text);
+            renta.Clientes = new RepositorioBase<Clientes>().Buscar(renta.ClienteId);
             return renta;
-         ;
+         
         }
 
         protected void RentarLinkButton_Click(object sender, EventArgs e)
@@ -64,8 +68,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
             if (IsValid)
             {
-
-
                 if (renta == null)
                 {
                     if (repositorio.Guardar(GetRenta()))
@@ -75,31 +77,27 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
                         //Poner();
                         Limpiar();
                         Utils.MostraMensaje(this, "Guardado", "Exito", "success");
-
                     }
                     else
                     {
                         Utils.MostraMensaje(this, "No Guardado", "Exito", "success");
                     }
-
                 }
                 else
                 {
                     if (repositorio.Modificar(GetRenta()))
                     {
-                        Poner();
+                        //Poner();
                         Limpiar();
                         Utils.MostraMensaje(this, "Modificado", "Exito", "success");
-
                     }
-
                     else
                         Utils.MostraMensaje(this, "No Modificado", "Error", "error");
                 }
             }
         }
 
-        private void Poner()
+        /*private void Poner()
         {
             int cantidad = DetalleGridView.Rows.Count;
             int id = Utils.ToInt(ClienteDropDownList.SelectedValue);
@@ -109,9 +107,9 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
             cliente.VehiculosRentados += cantidad;
             repositorio.Modificar(cliente);
-        }
+        }*/
 
-        private void Quitar()
+        /*private void Quitar()
         {
             int cantidad = DetalleGridView.Rows.Count;
             int id = Utils.ToInt(ClienteDropDownList.SelectedValue);
@@ -121,7 +119,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
             cliente.VehiculosRentados -= cantidad;
             repositorio.Modificar(cliente);
-        }
+        }*/
 
         private void LlenaDropDown()
         {
@@ -143,11 +141,10 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         protected void AgregarButton_Click(object sender, EventArgs e)
         {
-
+            detalles.Clear();
             Vehiculos vehiculos = repositorioVehiculos.Buscar(Utils.ToInt(VehiculoDropDownList.SelectedValue));
             decimal monto = 0;
 
-            var rentaAnt = repositorioRenta.Buscar(Utils.ToInt(RentaIDTextBox.Text));
             if (IsValid)
             {
                 detalles.Add(new RentasDetalles(Utils.ToInt(RentaIDTextBox.Text), vehiculos.VehiculoId, vehiculos.Anio, vehiculos.Marca, vehiculos.Modelo, vehiculos.PrecioRenta));
@@ -157,23 +154,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
                 DetalleGridView.DataBind();
                 detalles.ForEach(x => monto += x.Precio);
                 MontoTextBox.Text = monto.ToString();
-               
-
-                /*if (rentaAnt == null)
-                {
-                    Utils.MostraMensaje(this, "Agregado", "Exito!!", "info");
-                    //renta = (Rentas)ViewState["Renta"];
-                    renta.AgregarDetalle(Utils.ToInt(RentaIDTextBox.Text), vehiculos.VehiculoId, vehiculos.Anio, vehiculos.Marca, vehiculos.Modelo, vehiculos.PrecioRenta);
-                    ViewState["Renta"] = renta;
-                }
-                else
-                {
-                    Utils.MostraMensaje(this, "Agregado", "Exito!!", "info");
-                    rentaAnt.AgregarDetalle(Utils.ToInt(RentaIDTextBox.Text), vehiculos.VehiculoId,  vehiculos.Anio, vehiculos.Marca, vehiculos.Modelo, vehiculos.PrecioRenta);
-                    ViewState["Renta"] = rentaAnt;
-                }*/
-
-                //this.BindGrid();
+              
             }
 
         }
@@ -181,9 +162,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
 
-            //RepositorioBase<Rentas> repositorio = new RepositorioBase<Rentas>();
-
-            List<RentasDetalles> lista = (List<RentasDetalles>)ViewState["Detalle"];
             Rentas renta = repositorioRenta.Buscar(Utils.ToInt(RentaIDTextBox.Text));
             if (IsValid)
             {
@@ -193,10 +171,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
                 {
                     if (repositorioRenta.Eliminar(renta.RentaId))
                     {
-                        ViewState["Detalle"] = lista;
-                        DetalleGridView.DataSource = ViewState["Detalle"];
-                        DetalleGridView.DataBind();
-                        Quitar();
                         Limpiar();
                         Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
 
@@ -258,7 +232,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             DetalleGridView.DataSource = null;
             DetalleGridView.DataBind();
             MontoTextBox.Text = "";
-            ViewState["Renta"] = null;
+            //ViewState["Renta"] = null;
         }
 
         private void LlenarCampos(Rentas renta)
@@ -270,9 +244,7 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             MontoTextBox.Text = renta.Monto.ToString();
             foreach (var item in renta.Detalle)
             {
-
                 VehiculoDropDownList.SelectedValue = item.VehiculoId.ToString();
-
             }
 
             DetalleGridView.DataSource = renta.Detalle;
@@ -282,21 +254,18 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
         {
             renta = repositorioRenta.Buscar(Utils.ToInt(RentaIDTextBox.Text));
-            if (IsValid)
+            ViewState["Detalle"] = renta.Detalle;
+            if (renta != null)
             {
-                if (renta != null)
-                {
-                    Utils.MostraMensaje(this, "Hay Resultado", "Exito!!", "info");
-                    LlenarCampos(renta);
-
-                }
-                else
-                {
-                    Limpiar();
-                    Utils.MostraMensaje(this, "No Hay Resultado", "Fallo!!", "warning");
-                }
+                Utils.MostraMensaje(this, "Hay Resultado", "Exito!!", "info");
+                LlenarCampos(renta);
 
             }
+            else
+            {
+                Limpiar();
+                Utils.MostraMensaje(this, "No Hay Resultado", "Fallo!!", "warning");
+            }            
         }
 
         protected void NuevoLinkButton_Click(object sender, EventArgs e)
@@ -304,55 +273,19 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
             Limpiar();
         }
 
-        protected void DetalleGridView_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            DetalleGridView.EditIndex = e.NewEditIndex;
-            this.BindGrid();
-
-        }
-
-        protected void DetalleGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            DetalleGridView.EditIndex = -1;
-            this.BindGrid();
-        }
-
         protected void DetalleGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int id = Convert.ToInt32(DetalleGridView.DataKeys[e.RowIndex].Values[0]);
+            int id = e.RowIndex;
 
-            if (id == 0)
-            {
-                return;
-                //detalles.RemoveRange(id, id);
-                //this.BindGrid();
-                //DetalleGridView.DataSource = detalles;               
-                //DetalleGridView.DataBind();
-            }
-            else
-            {
-                RentasDetalles d = repositorioDetalle.Buscar(id);
-                repositorioDetalle.Eliminar(d.DetalleId);
-            }
 
-            DetalleGridView.EditIndex = -1;
-            ViewState["Renta"] = detalles;
+            //RentasDetalles d = repositorioDetalle.Buscar(id);
+            //repositorioDetalle.Eliminar(d.DetalleId);
+            detalles.RemoveAt(id);
+
+            //DetalleGridView.EditIndex = -1;
+            ViewState["Detalle"] = detalles;
             DetalleGridView.DataSource = detalles;
             DetalleGridView.DataBind();
-        }
-
-        protected void DetalleGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            /*GridViewRow row = DetalleGridView.Rows[e.RowIndex];
-            int id_Detalle = Convert.ToInt32(DetalleGridView.DataKeys[e.RowIndex].Values[0]);
-            string nombre = (row.FindControl("NombreTextBox") as TextBox).Text;
-
-            Grupos_Usuarios grupos = repositorio.Buscar(c => c.Id_Grupo_Usuario == id_Grupo);
-            grupos.Nombre = nombre;
-
-            repositorio.Modificar(grupos);
-            GrupoUsuarioGridView.EditIndex = -1;
-            BingGrid();*/
         }
 
         protected void CVDetalle_ServerValidate(object source, ServerValidateEventArgs args)

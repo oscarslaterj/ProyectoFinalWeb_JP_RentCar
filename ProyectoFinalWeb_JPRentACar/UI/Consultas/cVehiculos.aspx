@@ -18,10 +18,10 @@
         <%--Criterio--%>
         <div class="form-group col-md-3">
             <asp:Label ID="Label1" runat="server" Text="Buscar">Buscar:</asp:Label>
-            <asp:TextBox ID="CriterioTextBox" class="form-control input-group" runat="server"></asp:TextBox>
+            <asp:TextBox ID="CriterioTextBox" class="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="col-lg-1 p-0">
-            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-outline-info mt-4" runat="server">
+            <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-outline-info mt-4" runat="server" OnClick="BuscarLinkButton_Click">
                 <span class="fas fa-search"></span>
                  Buscar
             </asp:LinkButton>

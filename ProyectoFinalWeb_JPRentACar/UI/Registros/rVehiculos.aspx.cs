@@ -57,7 +57,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
 
         public void LlenaCampos(Vehiculos vehiculos)
         {
-            Limpiar();
             FechaTextBox.Text = vehiculos.FechaRegistro.ToString("yyyy-MM-dd");
             DescripcionTextBox.Text = vehiculos.Descripcion;
             AñoTextBox.Text = vehiculos.Anio.ToString();
@@ -144,24 +143,20 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Registros
         protected void EliminarLinkButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Vehiculos> repositorio = new RepositorioBase<Vehiculos>();
-            Vehiculos vehiculo = repositorio.Buscar(Utils.ToInt(VehiculoIDTextBox.Text));
-            if (IsValid)
+            int id = Utils.ToInt(VehiculoIDTextBox.Text);
+            Vehiculos vehiculo = repositorio.Buscar(id);
+          
+            if (vehiculo != null)
             {
-
-                if (vehiculo != null)
+                if (repositorio.Eliminar(vehiculo.VehiculoId))
                 {
-                    if (repositorio.Eliminar(vehiculo.VehiculoId))
-                    {
-                        Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
-                        Limpiar();
-                    }
-                    else
-                        Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
+                    Utils.MostraMensaje(this, "Eliminado", "Exito", "success");
+                    Limpiar();
                 }
                 else
-                    Utils.MostraMensaje(this, "No existe", "Error", "error");
-
+                    Utils.MostraMensaje(this, "No se pudo eliminar", "Error", "error");
             }
+       
         }
     }
 }

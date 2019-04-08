@@ -34,5 +34,16 @@ namespace Entities
             VehiculosRentados = 0;
         }
 
+        public Clientes(int id, string nombre, string cedula, string direccion, string telefono, DateTime time, int vr)
+        {
+            ClienteId = id;
+            Nombre = nombre;
+            Cedula = cedula;
+            Direccion = direccion;
+            Telefono = telefono;
+            FechaNacimiento = time;
+            VehiculosRentados = vr;
+        }
+
     }
 }

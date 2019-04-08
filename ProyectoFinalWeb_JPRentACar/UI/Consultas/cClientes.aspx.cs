@@ -23,7 +23,6 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             {
                 DesdeTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 HastaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                listClientes = repositorio.GetList(filtro);
 
             }
         }
@@ -43,19 +42,19 @@ namespace ProyectoFinalWeb_JPRentACar.UI.Consultas
             switch (FiltroDropDownList.SelectedIndex)
             {
                 case 0://Todo
-                    filtro = p => true && p.FechaRegistro >= desde && p.FechaRegistro <= hasta;
+                    filtro = p => true;
                     break;
 
                 case 1://ClienteId
                     id = Utils.ToInt(CriterioTextBox.Text);
-                    filtro = p => p.ClienteId == id && p.FechaRegistro >= desde && p.FechaRegistro <= hasta;
+                    filtro = p => p.ClienteId == id && (p.FechaRegistro >= desde && p.FechaRegistro <= hasta);
                     break;
 
                 case 2://Nombres
-                    filtro = p => p.Nombre.Contains(CriterioTextBox.Text) && p.FechaRegistro >= desde && p.FechaRegistro <= hasta;
+                    filtro = p => p.Nombre.Contains(CriterioTextBox.Text) && (p.FechaRegistro >= desde && p.FechaRegistro <= hasta);
                     break;
                 case 3://Cedula
-                    filtro = p => p.Cedula.Contains(CriterioTextBox.Text) && p.FechaRegistro >= desde && p.FechaRegistro <= hasta;
+                    filtro = p => p.Cedula.Contains(CriterioTextBox.Text) && (p.FechaRegistro >= desde && p.FechaRegistro <= hasta);
                     break;
             }
 

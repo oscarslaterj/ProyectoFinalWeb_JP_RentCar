@@ -144,7 +144,7 @@
 
                 <!--Eliminar-->
                 <div class="col-lg-1 mr-3">
-                    <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" ValidationGroup="Buscar"  OnClick="EliminarLinkButton_Click">
+                    <asp:LinkButton ID="EliminarLinkButton" CssClass="btn btn-danger" runat="server" CausesValidation="false" OnClick="EliminarLinkButton_Click">
                         <span class="fas fa-trash-alt"></span>
                         Eliminar
                 </asp:LinkButton>
