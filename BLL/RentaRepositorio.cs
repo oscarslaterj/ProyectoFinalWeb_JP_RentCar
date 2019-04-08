@@ -17,12 +17,12 @@ namespace BLL
         }
 
         public override bool Guardar(Rentas renta)
-        {
+        {//todo: 
             bool paso = false;
 
             try
             {
-                Clientes cliente = new Clientes(
+                /*Clientes cliente = new Clientes(
                     renta.Clientes.ClienteId,
                     renta.Clientes.Nombre,
                     renta.Clientes.Cedula,
@@ -32,13 +32,13 @@ namespace BLL
                     renta.Clientes.VehiculosRentados                    
                     );
                 cliente.FechaRegistro = DateTime.Parse(renta.Clientes.FechaRegistro.ToString("yyyy-MM-dd"));
-                renta.Clientes = null;
+                renta.Clientes = null;*/
                 var cantidad = renta.Detalle.Count;
-                cliente.VehiculosRentados += cantidad;
+               _contexto.Clientes.Find(renta.ClienteId).VehiculosRentados += cantidad;
 
                 _contexto.Renta.Add(renta);
-               _contexto.Clientes.Attach(cliente);
-               _contexto.Entry(cliente).State = EntityState.Modified;
+               //_contexto.Clientes.Attach(cliente);
+               //_contexto.Entry(cliente).State = EntityState.Modified;
 
                 //var cliente = _contexto.Clientes.Find(renta.ClienteId);
                 //cliente.VehiculosRentados += cantidad;

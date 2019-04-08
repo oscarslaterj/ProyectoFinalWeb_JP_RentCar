@@ -2,7 +2,9 @@ create DATABASE ProyectoFinalDb
 GO
 USE ProyectoFinalDb
 GO
-
+select * from Clientes
+select *from Rentas
+select * from RentasDetalles
 Create table Usuarios(
 UsuarioId int identity (1,1) primary key,
 Fecha date,
