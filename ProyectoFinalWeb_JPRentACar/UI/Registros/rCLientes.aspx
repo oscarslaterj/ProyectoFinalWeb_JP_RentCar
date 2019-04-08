@@ -17,7 +17,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="ClienteIdTextBox" CssClass="form-control" TextMode="Number" placeholder="0" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="Buscar" runat="server" ErrorMessage="*" ControlToValidate="ClienteIdTextBox" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                    
+
                         <div class="input-group-append">
                             <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-secondary" runat="server" ValidationGroup="Buscar" OnClick="BuscarLinkButton_Click">
                                 <span class="fas fa-search"></span>
@@ -57,7 +57,7 @@
                         <asp:ListItem Text="Femenino"></asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Sexo: Seleccione" ValidationGroup="Guardar" ControlToValidate="SexoDropDownList" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                    
+
                 </div>
 
                 <div class="form-group col-md-4">
@@ -80,7 +80,7 @@
                     <asp:TextBox type="text" AutoCompleteType="Disabled" class="form-control" ID="TelefonoTextBox" TextMode="Phone" MaxLength="10" placeholder="Ingresar Telefono" runat="server"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidaTelefono" runat="server" ErrorMessage='Campo "Telefono" solo acepta numeros' ControlToValidate="TelefonoTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Solo acepta numeros" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="ValidaVacioTelefono" runat="server" ErrorMessage="El campo &quot;Telefono&quot; esta vacio" ControlToValidate="TelefonoTextBox" ForeColor="Red" Display="Dynamic" ValidationGroup="Guardar"></asp:RequiredFieldValidator>
-                     <asp:CustomValidator ID="CVTelefonoMenor" OnServerValidate="CVTelefonoMenor_ServerValidate" ErrorMessage="Telefono: Incorrecto" ControlToValidate="TelefonoTextBox" SetFocusOnError="true" Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="Guardar" runat="server" />
+                    <asp:CustomValidator ID="CVTelefonoMenor" OnServerValidate="CVTelefonoMenor_ServerValidate" ErrorMessage="Telefono: Incorrecto" ControlToValidate="TelefonoTextBox" SetFocusOnError="true" Display="Dynamic" ForeColor="Red" Font-Bold="true" ValidationGroup="Guardar" runat="server" />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TelefonoTextBox" ForeColor="Red" Display="Dynamic" ErrorMessage="Cedula: Solo numeros" ValidationExpression="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
 
                 </div>
