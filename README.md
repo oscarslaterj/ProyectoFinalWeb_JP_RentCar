@@ -27,4 +27,4 @@ _Estas fueron las herramientas para crear el proyecto_
 
 ## Link del Proyecto
 
-(http://jprentacar.azurewebsites.net/)
+http://jprentacar.azurewebsites.net/
